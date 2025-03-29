@@ -29,6 +29,10 @@ html, body {
 
 button {
   font: inherit;
+  font-size: 0.875rem; 
+  letter-spacing: 2px;
+  font-weight: bold;
+  border: none;
 }
 
 img {
@@ -37,6 +41,9 @@ img {
   height: auto;
 }
 
-hr {
-  margin: 0; 
+// general paragraph font
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  opacity: 75%;
 }
