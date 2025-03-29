@@ -1,0 +1,26 @@
+header {
+  background-color: $black;
+  background: url("/assets/home/mobile/image-header.jpg");
+  padding: 2rem 1.5rem 0 1.5rem; 
+  position: relative;
+  height: 100vh;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+/* header icons */
+#hamburger-icon {
+  max-width: 1rem;
+}
+
+.audiophile-logo {
+  max-width: 8.938rem;
+}
+
+#cart {
+  max-width: 1.438rem;
+}

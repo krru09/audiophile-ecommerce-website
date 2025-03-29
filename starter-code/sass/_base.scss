@@ -1,0 +1,42 @@
+/* FONT FAMILY */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/* CSS COLORS */
+$burnt-orange: #D87D4A;
+$off-black: #101010;
+$light-gray: #F1F1F1;
+$off-white: #FAFAFA;
+$tangerine: #FBAF85;
+$white: #FFF;
+$black: #000;
+$default-font-color: rgba(0, 0, 0, 0.5);
+
+/* SOFT CSS RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Manrope", Helvetica, sans-serif;
+  color: $black; // fallback for older browsers
+  color: $default-font-color;
+
+  width: 100%;
+  min-height: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+hr {
+  margin: 0; 
+}
