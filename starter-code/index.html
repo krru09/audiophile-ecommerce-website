@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" href="dist/css/styles.min.css">
 </head>
 <body>
-  <header>
+  <header id="index-header">
     <picture class="hero-img-position">
       <source media="(min-width: 1440px)" srcset="assets/home/desktop/image-hero.jpg">
       <source media="(min-width: 768px)" srcset="assets/home/tablet/image-header.jpg">
@@ -18,15 +18,15 @@
     </picture>
     <section id="header-btn-container">
       <div class="header-buttons">
-        <img id="hamburger-icon" src="assets/shared/tablet/icon-hamburger.svg">
-        <img class="audiophile-logo" src="assets/shared/desktop/logo.svg">
-        <!-- <section id="navigation-links" class="navigation-links">
-          <h2>HOME</h2>
-          <h2>HEADPHONES</h2>
-          <h2>SPEAKERS</h2>
-          <h2>EARPHONES</h2>
-        </section> -->
-        <img id="cart" src="assets/shared/desktop/icon-cart.svg">
+        <a><img id="hamburger-icon" src="assets/shared/tablet/icon-hamburger.svg"></a>
+        <a href="#"><img class="audiophile-logo" src="assets/shared/desktop/logo.svg"></a>
+        <section id="navigation-links" class="navigation-links hidden">
+          <a href="#">HOME</a>
+          <a>HEADPHONES</a>
+          <a>SPEAKERS</a>
+          <a>EARPHONES</a>
+        </section>
+        <a><img id="cart" src="assets/shared/desktop/icon-cart.svg"></a>
       </div>
       <hr>
     </section>
@@ -40,35 +40,41 @@
     </section>
   </header>
   <main id="main">
-    <section class="category-section">
+    <section class="category-options">
       <article class="category-container">
         <img src="assets/shared/desktop/image-category-thumbnail-headphones.png" class="category-image" alt="XX Mark 1 Headphones">
         <div class="category-grey-background">
-          <h2 class="category-name">HEADPHONES</h2>
-          <button class="category-shop-button">
-            <span class="opacity-50">SHOP</span>
-            <img src="assets/shared/desktop/icon-arrow-right.svg">
-          </button>
+          <div class="category-content">
+            <h2 class="category-name">HEADPHONES</h2>
+            <button class="category-shop-button">
+              <span class="opacity-shop">SHOP</span>
+              <img src="assets/shared/desktop/icon-arrow-right.svg">
+            </button>
+          </div>
         </div>
       </article>
       <article class="category-container">
         <img src="assets/shared/desktop/image-category-thumbnail-speakers.png" class="category-image" alt="ZX9 Speakers">
         <div class="category-grey-background">
-          <h2 class="category-name">SPEAKERS</h2>
-          <button class="category-shop-button">
-            <span class="opacity-50">SHOP</span>
-            <img src="assets/shared/desktop/icon-arrow-right.svg">
-          </button>
+          <div class="category-content">
+            <h2 class="category-name">SPEAKERS</h2>
+            <button class="category-shop-button">
+              <span class="opacity-shop">SHOP</span>
+              <img src="assets/shared/desktop/icon-arrow-right.svg">
+            </button>
+          </div>
         </div>
       </article>
       <article class="category-container">
         <img src="assets/shared/desktop/image-category-thumbnail-earphones.png" class="category-image earphones" alt="YX1 Earphones">
         <div class="category-grey-background">
-          <h2 class="category-name">EARPHONES</h2>
-          <button class="category-shop-button">
-            <span class="opacity-50">SHOP</span>
-            <img src="assets/shared/desktop/icon-arrow-right.svg">
-          </button>
+          <div class="category-content">
+            <h2 class="category-name">EARPHONES</h2>
+            <button class="category-shop-button">
+              <span class="opacity-shop">SHOP</span>
+              <img src="assets/shared/desktop/icon-arrow-right.svg">
+            </button>
+          </div>
         </div>
       </article>
     </section>
@@ -130,12 +136,12 @@
   </main>
   <footer id="footer">
     <hr class="footer-rectangle">
-    <img src="assets/shared/desktop/logo.svg" class="audiophile-logo" alt="Audiophile Logo">
+    <a href="#"><img src="assets/shared/desktop/logo.svg" class="audiophile-logo" alt="Audiophile Logo"></a>
     <section id="navigation-links" class="navigation-links">
-      <h2>HOME</h2>
-      <h2>HEADPHONES</h2>
-      <h2>SPEAKERS</h2>
-      <h2>EARPHONES</h2>
+      <a>HOME</a>
+      <a>HEADPHONES</a>
+      <a>SPEAKERS</a>
+      <a>EARPHONES</a>
     </section>
     <section id="footer-description">
       <p>
@@ -146,9 +152,9 @@
       Copyright 2021. All Rights Reserved
     </section>
     <section id="footer-links">
-      <img src="assets/shared/desktop/icon-facebook.svg">
-      <img src="assets/shared/desktop/icon-twitter.svg">
-      <img src="assets/shared/desktop/icon-instagram.svg">
+      <a><img src="assets/shared/desktop/icon-facebook.svg"></a>
+      <a><img src="assets/shared/desktop/icon-twitter.svg"></a>
+      <a><img src="assets/shared/desktop/icon-instagram.svg"></a>
     </section>
   </footer>
 </body>

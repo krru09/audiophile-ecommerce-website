@@ -1,9 +1,61 @@
 // basic button styling in _base.scss
 
 // orange button
+.orange-button:hover, .orange-button:active {
+  background-color: $tangerine;
+}
+
 .orange-button {
   color: $white;
   width: 10rem;
   height: 3rem; 
   background-color: $burnt-orange;
+}
+
+// zx9 button 
+.zx9-button:hover, .zx9-button:active {
+  background-color: #4c4c4c;
+}
+
+.zx9-button {
+  background-color: black;
+  color: white;
+  width: 10rem;
+  height: 3rem;
+}
+
+// zx7 and yx1 buttons 
+.zx7-button:hover, .yx1-button:hover,
+.zx7-button:active, .yx1-button:active
+{
+  background-color: $black;
+  color: $white;
+}
+
+.zx7-button, .yx1-button {
+  background: none;
+  width: 10rem;
+  height: 3rem; 
+  border: 1px solid $black;
+}
+
+// category shop button
+.category-shop-button:hover, .category-shop-button:active {
+  color: $burnt-orange;
+
+  .opacity-shop {
+    opacity: 100%;
+  }
+}
+
+.category-shop-button img {
+  width: 0.313rem;
+  height: 0.625rem;
+}
+
+.category-shop-button {
+  background: none;
+  display: flex;
+  align-items: center;
+  gap: 0.813rem;
 }
