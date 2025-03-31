@@ -27,12 +27,21 @@ html, body {
   min-height: 100%;
 }
 
+// media queries
+/*mixins*/
+@mixin mq($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
 button {
   font: inherit;
   font-size: 0.875rem; 
   letter-spacing: 2px;
   font-weight: bold;
   border: none;
+  cursor: pointer; 
 }
 
 img {
@@ -51,6 +60,14 @@ p {
 // 50% opacity text
 .opacity-50 {
   opacity: 50%;
+}
+
+.orange-text {
+  color: $burnt-orange;
+}
+
+.audiophile-logo {
+  max-width: 8.938rem;
 }
 
 article {

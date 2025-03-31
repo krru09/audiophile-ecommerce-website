@@ -11,16 +11,27 @@
 </head>
 <body>
   <header>
-    <img class="hero-image" src="assets/home/mobile/image-header.jpg">
-    <section>
+    <picture class="hero-img-position">
+      <source media="(min-width: 1440px)" srcset="assets/home/desktop/image-hero.jpg">
+      <source media="(min-width: 768px)" srcset="assets/home/tablet/image-header.jpg">
+      <img class="hero-image" src="assets/home/mobile/image-header.jpg">
+    </picture>
+    <section id="header-btn-container">
       <div class="header-buttons">
         <img id="hamburger-icon" src="assets/shared/tablet/icon-hamburger.svg">
         <img class="audiophile-logo" src="assets/shared/desktop/logo.svg">
+        <!-- <section id="navigation-links" class="navigation-links">
+          <h2>HOME</h2>
+          <h2>HEADPHONES</h2>
+          <h2>SPEAKERS</h2>
+          <h2>EARPHONES</h2>
+        </section> -->
         <img id="cart" src="assets/shared/desktop/icon-cart.svg">
       </div>
       <hr>
     </section>
     <section id="hero-section">
+      <article class="hero-content">
         <span id="new-product">NEW PRODUCT</span>
         <h1 id="hero-title">XX99 MARK II HEADPHONES</h1>
         <p id="hero-description">Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
@@ -64,12 +75,12 @@
     <section id="see-product">
       <article id="see-product-zx9">
         <picture>
-          <source media="(min-width:1440px)" srcset="assets/home/desktop/image-speaker-zx9.png">
+          <source media="(min-width:1044px)" srcset="assets/home/desktop/image-speaker-zx9.png">
           <source media="(min-width:768px)" srcset="assets/home/tablet/image-speaker-zx9.png">
           <img src="assets/home/mobile/image-speaker-zx9.png" alt="ZX9 Speaker" class="zx9-see-product-img">
         </picture>
-        <div class="see-product-description">
-          <h2 class="zx9-title">SZ9<br>SPEAKER</h2>
+        <div class="zx9-content">
+          <h2 class="zx9-title">ZX9<br>SPEAKER</h2>
           <p class="zx9-description">Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
           <button class="zx9-button">
             SEE PRODUCT
@@ -82,7 +93,7 @@
           <button class="zx7-button">SEE PRODUCT</button>
         </div>
         <picture>
-          <source media="(min-width:1440px)" srcset="assets/home/desktop/image-speaker-zx7.jpg">
+          <source media="(min-width:1044px)" srcset="assets/home/desktop/image-speaker-zx7.jpg">
           <source media="(min-width:768px)" srcset="assets/home/tablet/image-speaker-zx7.jpg">
           <img src="assets/home/mobile/image-speaker-zx7.jpg" alt="ZX7 Speaker" class="zx7-see-product-image">
         </picture>
@@ -90,7 +101,7 @@
       <article id="see-product-yx1">
         <div class="yx1-container">
           <picture>
-            <source media="(min-width:1440px)" srcset="assets/home/desktop/image-earphones-yx1.jpg">
+            <source media="(min-width:1044px)" srcset="assets/home/desktop/image-earphones-yx1.jpg">
             <source media="(min-width:768px)" srcset="assets/home/tablet/image-earphones-yx1.jpg">
             <img src="assets/home/mobile/image-earphones-yx1.jpg" alt="YX1 Earphones" class="yx1-see-product-image">
           </picture>
@@ -103,6 +114,42 @@
         </div>
       </article>
     </section>
+    <section id="best-audio-gear">
+      <picture>
+        <source media="(min-width: 1044px)" srcset="assets/shared/desktop/image-best-gear.jpg">
+        <source media="(min-width: 768px)" srcset="assets/shared/tablet/image-best-gear.jpg">
+        <img src="assets/shared/mobile/image-best-gear.jpg" alt="Man Wearing Audiophile Headset" class="best-audio-image">
+      </picture>
+      <article class="best-audio-txt">
+        <h2 class="best-audio-title">BRINGING YOU THE <span class="orange-text">BEST</span> AUDIO GEAR</h2>
+        <p class="best-audio-description">
+          Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
+        </p>
+      </article>
+    </section>
   </main>
+  <footer id="footer">
+    <hr class="footer-rectangle">
+    <img src="assets/shared/desktop/logo.svg" class="audiophile-logo" alt="Audiophile Logo">
+    <section id="navigation-links" class="navigation-links">
+      <h2>HOME</h2>
+      <h2>HEADPHONES</h2>
+      <h2>SPEAKERS</h2>
+      <h2>EARPHONES</h2>
+    </section>
+    <section id="footer-description">
+      <p>
+        Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.
+      </p>
+    </section>
+    <section id="footer-copyright">
+      Copyright 2021. All Rights Reserved
+    </section>
+    <section id="footer-links">
+      <img src="assets/shared/desktop/icon-facebook.svg">
+      <img src="assets/shared/desktop/icon-twitter.svg">
+      <img src="assets/shared/desktop/icon-instagram.svg">
+    </section>
+  </footer>
 </body>
 </html>
