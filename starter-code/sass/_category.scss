@@ -47,6 +47,17 @@
   }
 }
 
+.reverse {
+  @include mq(1024px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'product-content product-image';
+    gap: 7.813rem;
+    max-width: 69.375rem;
+    place-self: center;
+  }
+}
+
 .category-content-container {
   grid-area: product-content;
   display: grid;
