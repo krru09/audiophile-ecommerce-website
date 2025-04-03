@@ -35,7 +35,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto;
-  
+  place-items: center;
   grid-template-areas: 
     'hamburger header-logo cart';
   
@@ -53,8 +53,8 @@ header {
 }
 
 #hamburger-icon {
-  grid-area: hamburger;
-  place-self: start;
+  grid-area: hamburger; 
+  place-self: center start;
   max-width: 1rem;
 }
 
@@ -64,14 +64,12 @@ header {
 
 #cart {
   grid-area: cart;
-  place-self: end;
+  place-self: center end;
   max-width: 1.438rem;
 }
 
 header .audiophile-logo {
   grid-area: header-logo;
-  place-self: center;
-
   // desktop place-self
   // place-self: start;
 }

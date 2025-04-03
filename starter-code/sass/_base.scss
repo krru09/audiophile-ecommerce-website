@@ -87,6 +87,8 @@ a {
   text-decoration: none;
 }
 
-header button {
+header button, header a {
+  width: fit-content;
   background: none;
+  display: grid;
 }
