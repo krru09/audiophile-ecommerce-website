@@ -1,0 +1,265 @@
+#product-details-header {
+  height: 5.625rem;
+}
+
+#product-details-main {
+  padding: 1rem 1.5rem 7.5rem 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+
+  @include mq(768px) {
+    padding: 2rem 2.5rem 7.5rem 2.5rem;
+  }
+}
+
+.product-details-grid {
+  display: grid;
+  gap: 5.5rem;
+
+  @include mq(768px) {
+   gap: 7.5rem; 
+  }
+}
+
+// product details section
+h2 {
+  color: black;
+  font-size: 1.5rem;
+  letter-spacing: 0.86px;
+  line-height: 2.25rem;
+}
+
+.product-details {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: auto;
+  grid-template-areas:
+    'product-image'
+    'product-purchase';
+  
+    @include mq(768px) {
+      grid-template-columns: auto auto;
+      grid-template-rows: auto;
+      grid-template-areas:
+        'product-image product-purchase';
+    }
+
+    @include mq(1440px) {
+      gap: 7.813rem;
+    } 
+}
+
+.product-details img {
+  grid-area: product-image;
+}
+
+.product-details-content {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 21.25rem;
+
+  @include mq(768px) {
+    gap: 2rem;
+  }
+}
+
+.product-details-image {
+  border-radius: .5rem;
+}
+
+.product-details-name {
+  font-size: 1.75rem;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.product-details-descriptions {
+  color: black;
+  opacity: 50%;
+}
+
+.product-details-price {
+  color: black;
+  font-weight: bold;
+  font-size: 1.25rem;
+  letter-spacing: 1.29px;
+}
+
+.product-add-cart-buttons {
+  max-height: 3rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.product-purchase {
+  grid-area: product-purchase;
+  display: grid;
+  grid-gap: 2rem; 
+  height: fit-content;
+}
+
+.quantity-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 7.5rem;
+
+  background-color: $light-gray;
+  gap: 1.25rem;
+}
+
+.quantity-button p {
+  color: black;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.quantity-button > button {
+  opacity: 25%;
+}
+
+.decrement-button {
+  width: 100%;
+}
+
+.increment-button {
+  width: 100%;
+}
+
+// product features and product-box grid
+.product-features, .product-box {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.product-box {
+  grid-template-areas:
+    'box-header'
+    'box-list';
+
+  @include mq(768px) {
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      'box-header box-list';
+  }
+}
+
+// product box
+.product-box h2 {
+  grid-area: box-header;
+}
+
+ul {
+  grid-area: box-list;
+  list-style-type: none;
+  display: grid;
+  gap: .5rem;
+}
+
+ul span {
+  color: $burnt-orange;
+  font-weight: bold;
+}
+
+li {
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+// image gallery
+.gallery-container {
+  display: grid;
+  gap: 1.25rem;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    'gallery-1'
+    'gallery-2'
+    'gallery-3';
+  
+    @include mq(768px) {
+      gap: 1.25rem;
+      grid-template-columns: 1fr 1.45fr;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        'gallery-1 gallery-3'
+        'gallery-2 gallery-3';
+    }
+  
+}
+
+.gallery-container img {
+  border-radius: .5rem;
+  height: 100%;
+}
+
+#gallery1 {
+  grid-area: gallery-1;
+}
+
+#gallery2 {
+  grid-area: gallery-2;
+}
+
+#gallery3 {
+  grid-area: gallery-3;
+}
+
+// products may like
+.products-may-like-container {
+  display: grid;
+  gap: 2.5rem;
+
+  @include mq(768px) {
+    gap: 3.5rem;
+    text-align: center;
+  }
+}
+
+#product-1 {
+  grid-area: product-1;
+}
+
+#product-2 {
+  grid-area: product-2;
+}
+
+#product-3 {
+  grid-area: product-3;
+}
+
+
+.products-may-like-list {
+  display: grid;
+  gap: 3.5rem;
+  grid-template-areas:
+    'product-1'
+    'product-2'
+    'product-3';
+
+  @include mq(768px) {
+    grid-template-areas:
+      'product-1 product-2 product-3';
+    gap: 0.625rem;
+  }
+}
+
+.products-may-like-list img {
+  border-radius: .5rem;
+}
+
+.products-may-like-list article {
+  text-align: center;
+  display: grid;
+  gap: 2rem;
+  place-items: center;
+}
+
+.products-may-like-list h3 {
+  font-size: 1.5rem;
+  letter-spacing: 1.71px;
+  color: black;
+}

@@ -1,10 +1,7 @@
 // basic button styling in _base.scss
 
 // orange button
-.orange-button:hover, .orange-button:active {
-  background-color: $tangerine;
-}
-
+.orange-button:visited,
 .orange-button {
   color: $white;
   width: 10rem;
@@ -12,11 +9,18 @@
   background-color: $burnt-orange;
 }
 
+.orange-button:hover, .orange-button:active {
+  background-color: $tangerine;
+}
+
+
 // zx9 button 
+.zx9-button:visited {
+  color: white;
+}
 .zx9-button:hover, .zx9-button:active {
   background-color: #4c4c4c;
 }
-
 .zx9-button {
   background-color: black;
   color: white;
@@ -32,6 +36,7 @@
   color: $white;
 }
 
+.zx7-button:visited, .yx1-button:visited,
 .zx7-button, .yx1-button {
   background: none;
   width: 10rem;
@@ -58,4 +63,14 @@
   display: flex;
   align-items: center;
   gap: 0.813rem;
+}
+
+// go back button
+.go-back-link, .go-back-link:visited {
+  color: $default-font-color;
+  justify-self: flex-start;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0;
 }
