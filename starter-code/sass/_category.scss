@@ -28,7 +28,9 @@
   }
 
   @include mq(1440px) {
-    padding: 10rem 10.313rem 10rem 10.313rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    padding-inline: max(10.313rem, 11%);
     gap: 10rem;
   }
 }

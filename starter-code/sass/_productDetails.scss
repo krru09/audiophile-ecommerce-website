@@ -10,6 +10,10 @@
   @include mq(768px) {
     padding: 2rem 2.5rem 7.5rem 2.5rem;
   }
+
+  @include mq(1440px) {
+    padding-inline: max(10.313rem, 11%);
+  }
 }
 
 .product-details-grid {
