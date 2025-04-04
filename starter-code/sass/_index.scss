@@ -415,7 +415,7 @@ hr {
       'audio-desc audio-img';
     gap: 7.813rem;
 
-    max-width: 69.375rem;
+    width: max(69.375rem, 60%);
     place-self: center;
   }
 }
@@ -437,7 +437,8 @@ hr {
   }
 
   @include mq(1440px) {
-    max-width: 27.813rem;
+    min-width: 27.813rem;
+    width: 100%;
     text-align: left;
   }
 }

@@ -8,103 +8,163 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
 
   <title>Frontend Mentor | Audiophile e-commerce website</title>
+  <link rel="stylesheet" type="text/css" href="dist/css/styles.min.css">
 </head>
 
 <body>
-  Home
-  Headphones
-  Speakers
-  Earphones
-
-  
-  <!-- Cart Modal -->
-  Cart(3)
-  Remove All
-
-  XX99 MK II x1
-  $2,999
-  
-  XX59 x2
-  $899
-  
-  YX1 x1
-  $599
-  
-  Total $5,396
-
-  Checkout
-  <!-- Cart modal end -->
-
-  
-  Go back
-
-  Checkout
-
-  Billing details
-  Name
-  Email address
-  Phone number
-
-  Shipping info
-  Address
-  ZIP code
-  City
-  Country
-
-  Payment details
-  Payment method
-  e-Money
-  Cash on delivery
-  e-Money number
-  e-money PIN
-
-  The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives 
-  at your residence. Just make sure your address is correct so that your order will not be cancelled.
-
-  Summary
-  XX99 MK II x1
-  $2,999
-
-  XX59 x2
-  $899
-
-  YX1 x1
-  $599
-
-  Total $5,396
-  Shipping $10
-  VAT $120
-
-  Grand total $5,526
-
-  Continue & pay
-
-
-  <!-- Success Modal -->
-  Thank you for your order
-  You will receive an email confirmation shortly.
-
-  XX99 MK II x 1
-  $2,999
-  and 2 other item(s)
-
-  Grand total
-  $5,526
-
-  Back to home
-  <!-- End success modal -->
-
-
-  Home
-  Headphones
-  Speakers
-  Earphones
-
-  Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
-  and sound specialists who are devoted to helping you get the most out of personal audio. Come and
-  visit our demo facility - we’re open 7 days a week.
-
-  Copyright 2021. All Rights Reserved
+  <header id="product-details-header">
+    <section id="header-btn-container">
+      <div class="header-buttons">
+        <button id="hamburger-icon"><img src="assets/shared/tablet/icon-hamburger.svg"></button>
+        <a href="index.html"><img class="audiophile-logo" src="assets/shared/desktop/logo.svg"></a>
+        <section id="navigation-links" class="navigation-links hidden">
+          <a href="index.html">HOME</a>
+          <a href="headphones.html">HEADPHONES</a>
+          <a href="speakers.html">SPEAKERS</a>
+          <a href="earphones.html">EARPHONES</a>
+        </section>
+        <button id="cart"><img src="assets/shared/desktop/icon-cart.svg"></button>
+      </div>
+    </section>
+  </header>
+  <main>
+    <a href="#" class="go-back-link">Go Back</a>
+    <section id="checkout">
+      <h1>CHECKOUT</h1>
+      <form id="checkout-form">
+        <fieldset>
+          <legend>
+            <h2>BILLING DETAILS</h2>
+          </legend>
+          <label for="full-name">
+            Name
+            <input id="full-name" type="text" placeholder="Alexei Ward">
+          </label>
+          <label for="email-address">
+            Email Address
+            <input id="full-name" type="text" placeholder="alexei@mail.com">
+          </label>
+          <label for="phone-number">
+            Phone Number
+            <input id="full-name" type="text" placeholder="+1202-555-0136">
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>
+            <h2>SHIPPING INFO</h2>
+          </legend>
+          <label for="address">
+            Your Address
+            <input id="address" type="text" placeholder="1137 Williams Avenue">
+          </label>
+          <label for="zip-code">
+            Zip Code
+            <input id="zip-code" type="text" placeholder="10001">
+          </label>
+          <label for="city">
+            Your Address
+            <input id="city" type="text" placeholder="New York">
+          </label>
+          <label for="country">
+            Country
+            <input id="country" type="text" placeholder="United States">
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>
+            <h2>PAYMENT</h2>
+          </legend>
+          <label for="e-Money">
+            <input type="radio" name="payment-method" id="e-Money" value="e-Money">
+            e-Money
+          </label>
+          <label for="cash-delivery">
+            <input type="radio" name="payment-method" id="cash-delivery" value="Cash on Delivery">
+            Cash on Delivery
+          </label>
+          <label for="e-money-num">
+            e-Money Number
+            <input type="text" placeholder="238521993" id="e-money-num">
+          </label>
+          <label for="e-money-pin">
+            e-Money PIN
+            <input type="text" placeholder="6891" id="e-money-pin">
+          </label>
+        </fieldset>
+      </form>
+    </section>
+    <section id="order-summary">
+      <h2>SUMMARY</h2>
+      <section id="cart-products">
+        <article>
+          <img src="assets/cart/image-xx99-mark-two-headphones.jpg">
+          <div class="cart-product-details">
+            <h3>XX99 MK II</h3>
+            <h4>$ 2,999</h4>
+          </div>
+          <p>x1</p>
+        </article>
+        <article>
+          <img src="assets/cart/image-xx59-headphones.jpg">
+          <div class="cart-product-details">
+            <h3>XX59</h3>
+            <h4>$ 899</h4>
+          </div>
+          <p>x2</p>
+        </article>
+        <article>
+          <img src="assets/cart/image-yx1-earphones.jpg">
+          <div class="cart-product-details">
+            <h3>YX1</h3>
+            <h4>$ 599</h4>
+          </div>
+          <p>x1</p>
+        </article>
+      </section>
+      <section id="cart-calculations">
+        <article id="cart-subtotal">
+          <h3>TOTAL</h3>
+          <h4>$ 5,396</h4>
+        </article>
+        <article id="cart-shipping">
+          <h3>SHIPPING</h3>
+          <h4>$ 50</h4>
+        </article>
+        <article id="cart-vat">
+          <h3>VAT (INCLUDED)</h3>
+          <h4>$ 1,079</h4>
+        </article>
+      </section>
+      <section id="cart-grand-total">
+        <h3>GRAND TOTAL</h3>
+        <h4 class="orange-text">$ 5,446</h4>
+      </section>
+      <button class="orange-button">CONTINUE & PAY</button>
+    </section>
+  </main>
+  <footer id="footer">
+    <hr class="footer-rectangle">
+    <a href="#"><img src="assets/shared/desktop/logo.svg" class="audiophile-logo" alt="Audiophile Logo"></a>
+    <section id="navigation-links" class="navigation-links">
+      <a href="index.html">HOME</a>
+      <a href="headphones.html">HEADPHONES</a>
+      <a href="speakers.html">SPEAKERS</a>
+      <a href="earphones.html">EARPHONES</a>
+    </section>
+    <section id="footer-description">
+      <p>
+        Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.
+      </p>
+    </section>
+    <section id="footer-copyright">
+      Copyright 2021. All Rights Reserved
+    </section>
+    <section id="footer-links">
+      <a><img src="assets/shared/desktop/icon-facebook.svg"></a>
+      <a><img src="assets/shared/desktop/icon-twitter.svg"></a>
+      <a><img src="assets/shared/desktop/icon-instagram.svg"></a>
+    </section>
+  </footer>
 </body>
 
 </html>
