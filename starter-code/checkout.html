@@ -27,69 +27,109 @@
       </div>
     </section>
   </header>
-  <main>
+  <main id="checkout-main">
     <a href="#" class="go-back-link">Go Back</a>
     <section id="checkout">
       <h1>CHECKOUT</h1>
       <form id="checkout-form">
-        <fieldset>
-          <legend>
+        <fieldset id="billing-details">
+          <legend class="error-flex">
             <h2>BILLING DETAILS</h2>
           </legend>
-          <label for="full-name">
-            Name
-            <input id="full-name" type="text" placeholder="Alexei Ward">
-          </label>
-          <label for="email-address">
-            Email Address
-            <input id="full-name" type="text" placeholder="alexei@mail.com">
-          </label>
-          <label for="phone-number">
-            Phone Number
-            <input id="full-name" type="text" placeholder="+1202-555-0136">
-          </label>
+          <article class="billing-input-container">
+            <label for="full-name">
+              <h3>
+                Name
+                <span class="error-message">Wrong format</span>
+              </h3>
+              <input id="full-name" type="text" placeholder="Alexei Ward">
+            </label>
+            <label for="email-address">
+              <h3>
+                Email Address
+                <span class="error-message">Wrong format</span>
+              </h3>
+              <input id="full-name" type="text" placeholder="alexei@mail.com">
+            </label>
+            <label for="phone-number">
+              <h3>
+                Phone Number
+                <span class="error-message">Wrong format</span>
+              </h3>
+              <input id="full-name" type="text" placeholder="+1202-555-0136">
+            </label>
+          </article>
         </fieldset>
-        <fieldset>
+        <fieldset id="shipping-info">
           <legend>
             <h2>SHIPPING INFO</h2>
           </legend>
-          <label for="address">
-            Your Address
-            <input id="address" type="text" placeholder="1137 Williams Avenue">
-          </label>
-          <label for="zip-code">
-            Zip Code
-            <input id="zip-code" type="text" placeholder="10001">
-          </label>
-          <label for="city">
-            Your Address
-            <input id="city" type="text" placeholder="New York">
-          </label>
-          <label for="country">
-            Country
-            <input id="country" type="text" placeholder="United States">
-          </label>
+          <article class="shipping-info-input-container">
+            <label for="address">
+              <h3>
+                Your Address
+                <span class="error-message">Wrong format</span>
+              </h3>
+              <input id="address" type="text" placeholder="1137 Williams Avenue">
+            </label>
+            <label for="zip-code">
+              <h3>
+                Zip Code
+                <span class="error-message">Wrong format</span>
+              </h3>
+              <input id="zip-code" type="text" placeholder="10001">
+            </label>
+            <label for="city">
+              <h3>
+                Your Address
+                <span class="error-message">Wrong format</span>
+              </h3>
+              <input id="city" type="text" placeholder="New York">
+            </label>
+            <label for="country">
+              <h3>
+                Country
+                <span class="error-message">Wrong format</span>
+              </h3>
+              <input id="country" type="text" placeholder="United States">
+            </label>
+          </article>
         </fieldset>
-        <fieldset>
+        <fieldset id="payment">
           <legend>
             <h2>PAYMENT</h2>
           </legend>
-          <label for="e-Money">
-            <input type="radio" name="payment-method" id="e-Money" value="e-Money">
-            e-Money
-          </label>
-          <label for="cash-delivery">
-            <input type="radio" name="payment-method" id="cash-delivery" value="Cash on Delivery">
-            Cash on Delivery
-          </label>
-          <label for="e-money-num">
-            e-Money Number
-            <input type="text" placeholder="238521993" id="e-money-num">
-          </label>
-          <label for="e-money-pin">
-            e-Money PIN
-            <input type="text" placeholder="6891" id="e-money-pin">
-          </label>
+          <article class="payment-container">
+            <div class="radio-options-container">
+              <h3 class="payment-title">
+                Payment Method
+              </h3>
+              <label for="e-money">
+                <input type="radio" name="payment-method" id="e-Money" value="e-Money">
+                <h4>e-Money</h4>
+              </label>
+              <label for="cash-delivery">
+                <input type="radio" name="payment-method" id="cash-delivery" value="Cash on Delivery">
+                <h4>Cash on Delivery</h4>
+              </label>
+            </div>
+            <div class="e-money-input-container">
+              <label for="e-money-num">
+                <h3>
+                  e-Money Number
+                  <span class="error-message">Wrong format</span>
+                </h3>
+                <input type="text" placeholder="238521993" id="e-money-num">
+              </label>
+              <label for="e-money-pin">
+                <h3>
+                  e-Money PIN
+                  <span class="error-message">Wrong format</span>
+                </h3>
+                <input type="text" placeholder="6891" id="e-money-pin">
+              </label>
+            </div>
+          </article>
         </fieldset>
       </form>
     </section>
@@ -121,23 +161,25 @@
           <p>x1</p>
         </article>
       </section>
-      <section id="cart-calculations">
-        <article id="cart-subtotal">
-          <h3>TOTAL</h3>
-          <h4>$ 5,396</h4>
-        </article>
-        <article id="cart-shipping">
-          <h3>SHIPPING</h3>
-          <h4>$ 50</h4>
-        </article>
-        <article id="cart-vat">
-          <h3>VAT (INCLUDED)</h3>
-          <h4>$ 1,079</h4>
-        </article>
-      </section>
-      <section id="cart-grand-total">
-        <h3>GRAND TOTAL</h3>
-        <h4 class="orange-text">$ 5,446</h4>
+      <section class="cart-calculations-container">
+        <section id="cart-calculations">
+          <article id="cart-subtotal">
+            <h3>TOTAL</h3>
+            <h4>$ 5,396</h4>
+          </article>
+          <article id="cart-shipping">
+            <h3>SHIPPING</h3>
+            <h4>$ 50</h4>
+          </article>
+          <article id="cart-vat">
+            <h3>VAT (INCLUDED)</h3>
+            <h4>$ 1,079</h4>
+          </article>
+        </section>
+        <section id="cart-grand-total">
+          <h3>GRAND TOTAL</h3>
+          <h4 class="orange-text">$ 5,446</h4>
+        </section>
       </section>
       <button class="orange-button">CONTINUE & PAY</button>
     </section>
