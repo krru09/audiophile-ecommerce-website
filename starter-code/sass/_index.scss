@@ -1,5 +1,5 @@
 header {
-  background-color: #151515;
+  background-color: #1a1a1a;
   padding: 2rem 1.5rem 0 1.5rem; 
 
   @include mq(1440px) {
@@ -23,10 +23,13 @@ header {
 /* hero-image */
 .hero-img-position {
   z-index: 1;
+  max-width: 1440px;
   width: 100%;
   position: absolute;
   left: 0;
-  top: -10%;
+  right: 0;
+  margin: auto;
+  bottom: 0;
   margin: auto;
 }
 
@@ -58,11 +61,11 @@ header {
   max-width: 1rem;
 }
 
-#cart:hover {
+#cart-button:hover {
   filter: invert(54%) sepia(37%) saturate(812%) hue-rotate(337deg) brightness(97%) contrast(82%);
 }
 
-#cart {
+#cart-button {
   grid-area: cart;
   place-self: center end;
   max-width: 1.438rem;
@@ -97,15 +100,31 @@ hr {
   display: grid;
   justify-items: center;
   place-items: center;
+  margin-top: 5.688rem;
+}
 
+.index-hero {
   @include mq(1440px) {
     place-items: start;
     text-align: left;
+
+    position: absolute;
+    top: 30%;
+    transform: translateY(-30%);
   }
 }
 
 #header-btn-container {
-  z-index: 1; 
+  z-index: 100; 
+  background-color: rgb(26, 26, 26);
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 2rem 1.5rem 0 1.5rem; 
+  @include mq(1440px) {
+    padding-inline: max(10.313rem, 11%);
+  }
 }
 
 .hero-content {
