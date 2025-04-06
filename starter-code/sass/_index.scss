@@ -1,4 +1,5 @@
 header {
+  position: relative;
   background-color: #1a1a1a;
   padding: 2rem 1.5rem 0 1.5rem; 
 
@@ -100,7 +101,11 @@ hr {
   display: grid;
   justify-items: center;
   place-items: center;
-  margin-top: 5.688rem;
+  margin-top: 10rem;
+
+  @include mq(1440px) {
+    margin-top: 5.688rem;
+  }
 }
 
 .index-hero {
@@ -128,7 +133,6 @@ hr {
 }
 
 .hero-content {
-  min-width: 21.625rem;
   max-width: 24.813rem;
   width: 100%;
 
@@ -137,6 +141,7 @@ hr {
 
   @include mq(1440px) {
     place-items: start;
+    text-align: left;
   }
 }
 

@@ -1,20 +1,32 @@
 #cart {
+  all: unset; // removes all default browser styles for <dialog>, including the ones interfering with your positioning (like margin: auto or built-in centering).
+
   width: fit-content;
   border: none;
   border-radius: .5rem;
   z-index: 3;
+
+  background-color: white;
   padding: 2rem 1.75rem;
 
-  display: grid;
+  display: none; // change to grid when user clicks on cart button
   gap: 2rem;
-
+  
   position: fixed;
   top: 50%;
-  bottom: 0;
-  transform: translateY(-50%);
-  left: 0;
   right: 0;
+  left: 0;
   margin-inline: auto;
+  transform: translateY(-50%);
+
+  @include mq(768px) {
+    left: unset;
+    right: 1rem;
+  }
+
+  @include mq(1440px) {
+    right: max(10.313rem, 11%);
+  }
 
   .close-button {
     max-width: 1.5rem;
