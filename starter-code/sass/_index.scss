@@ -1,178 +1,79 @@
-header {
-  position: relative;
-  background-color: #1a1a1a;
-  padding: 2rem 1.5rem 0 1.5rem; 
+/* hero section */
+#hero-section {
+  margin-top: 0;
+  height: 31.5rem;
+  background-color: #1c1c1c;
+  padding-inline: 1.5rem;
+
+  display: grid;
+  place-content: center;
+
+  @include mq(768px) {
+    height: 39.625rem;
+    padding-inline: 2.5rem;
+  }
 
   @include mq(1440px) {
-    padding-inline: max(10.313rem, 11%);
+    padding-inline: 10.313rem;
+    justify-content: start;
   }
 }
 
-#index-header {
-  position: relative;
+.hero-image-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+}
+
+.hero-image {
   height: 37.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 6.75rem; 
-  overflow: hidden; // overflow property specifies whether to clip the content or to add scrollbars when the content of an element is too big to fit in the specified area
+  object-fit: cover;
 
   @include mq(768px) {
     height: 45.563rem;
   }
 }
 
-/* hero-image */
-.hero-img-position {
-  z-index: 1;
-  max-width: 1440px;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  bottom: 0;
-  margin: auto;
-}
-
-/* header icons */
-.header-buttons {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: auto;
-  place-items: center;
-  grid-template-areas: 
-    'hamburger header-logo cart';
-  
-  // this is for desktop header styles
-  // grid-template-areas: 
-  //   'header-logo header-links cart';
-}
-
-.header-buttons a {
-  cursor: pointer;
-}
-
-#hamburger-icon:hover {
-  filter: invert(54%) sepia(37%) saturate(812%) hue-rotate(337deg) brightness(97%) contrast(82%);
-}
-
-#hamburger-icon {
-  grid-area: hamburger; 
-  place-self: center start;
-  max-width: 1rem;
-}
-
-#cart-button:hover {
-  filter: invert(54%) sepia(37%) saturate(812%) hue-rotate(337deg) brightness(97%) contrast(82%);
-}
-
-#cart-button {
-  grid-area: cart;
-  place-self: center end;
-  max-width: 1.438rem;
-}
-
-header .audiophile-logo {
-  grid-area: header-logo;
-  // desktop place-self
-  // place-self: start;
-}
-
-header .navigation-links {
-  grid-area: header-links;
-  place-self: center;
-  display: none;
-}
-
-/* hr */
-hr { 
-  width: 100%;
-  border: 1px solid white;
-  opacity: 50%;
-  height: 1px;
-  margin-top: 2rem;
-}
-
-/* hero-section */
-#hero-section {
-  z-index: 1; 
+#hero-content {
   color: white;
-  text-align: center; 
-  display: grid;
-  justify-items: center;
-  place-items: center;
-  margin-top: 10rem;
 
-  @include mq(1440px) {
-    margin-top: 5.688rem;
-  }
-}
-
-.index-hero {
-  @include mq(1440px) {
-    place-items: start;
-    text-align: left;
-
-    position: absolute;
-    top: 30%;
-    transform: translateY(-30%);
-  }
-}
-
-#header-btn-container {
-  z-index: 100; 
-  background-color: rgb(26, 26, 26);
-  width: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding: 2rem 1.5rem 0 1.5rem; 
-  @include mq(1440px) {
-    padding-inline: max(10.313rem, 11%);
-  }
-}
-
-.hero-content {
-  max-width: 24.813rem;
-  width: 100%;
+  position: relative;
 
   display: grid;
+  gap: 1.75rem;
+  text-align: center;
   place-items: center;
 
   @include mq(1440px) {
-    place-items: start;
     text-align: left;
+    place-items: start;
   }
 }
 
-#new-product {
-  letter-spacing: 0.625rem;
+#hero-content .hero-new {
+  opacity: 50%;
+}
+
+#hero-text {
+  display: grid;
+  gap: 1rem;
+  max-width: 23.688rem;
 }
 
 #hero-title {
-  width: fit-content;
-  letter-spacing: 1.29px;
-  line-height: 2.5rem;
-  font-size: 2.25rem;
-
-  margin-top: 1rem;
-
-  @include mq(768px) {
-    font-size: 3.5rem;
-    line-height: 3.625rem;
-    letter-spacing: 2px;
-    margin-top: 1.5rem;
-  }
+  font-size: clamp(2.25rem, 10vw, 3.5rem);
+  line-height: 1;
 }
 
 #hero-description {
-  margin-top: 1.5rem; 
-  margin-bottom: 1.75rem;
-  max-width: 23.688rem;
-
-  @include mq(768px) {
-    margin-bottom: 2.5rem;
-  }
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+  opacity: 50%;
+  color: white;
 }
 
 /* main */
@@ -240,7 +141,7 @@ hr {
   right: 0;
   margin: auto; 
   
-  z-index: 2;
+  z-index: 1000;
 }
 
 .category-content {

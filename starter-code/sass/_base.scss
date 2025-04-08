@@ -88,8 +88,6 @@ a {
   text-decoration: none;
 }
 
-header button, header a {
-  width: fit-content;
-  background: none;
-  display: grid;
+.hidden {
+  display: none;
 }

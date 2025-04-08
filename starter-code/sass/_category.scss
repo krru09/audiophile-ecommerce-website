@@ -1,19 +1,16 @@
-#category-header {
-  height: 12rem;
-
-  @include mq(768px) {
-    height: 21rem;
-  }
+// category hero
+#category-hero {
+  background-color: rgb(28, 28, 28);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: grid;
+  place-content: center;
+  color: white;
 }
 
 #category-title {
   font-size: 1.75rem;
-  width: 100%;
-  text-align: center;
-
-  @include mq(768px) {
-    margin-top: 6.563rem;
-  }
+  letter-spacing: 2px;
 }
 
 // category main

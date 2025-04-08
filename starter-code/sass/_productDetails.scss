@@ -1,13 +1,3 @@
-#product-details-header {
-  height: 5.625rem;
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: 100;
-}
-
 #product-details-main {
   padding: 1rem 1.5rem 7.5rem 1.5rem;
   display: grid;
@@ -137,10 +127,12 @@ h2 {
 
 .decrement-button {
   width: 100%;
+  height: 100%;
 }
 
 .increment-button {
   width: 100%;
+  height: 100%;
 }
 
 
