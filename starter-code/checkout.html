@@ -111,28 +111,28 @@
       <h1>CHECKOUT</h1>
       <form id="checkout-form">
         <fieldset id="billing-details">
-          <legend class="error-flex">
+          <legend>
             <h2>BILLING DETAILS</h2>
           </legend>
           <article class="billing-input-container">
             <label for="full-name">
               <h3>
                 Name
-                <span class="error-message">Wrong format</span>
+                <span class="error-message hidden">Wrong format</span>
               </h3>
               <input id="full-name" type="text" placeholder="Alexei Ward">
             </label>
             <label for="email-address">
               <h3>
                 Email Address
-                <span class="error-message">Wrong format</span>
+                <span class="error-message hidden">Wrong format</span>
               </h3>
               <input id="full-name" type="text" placeholder="alexei@mail.com">
             </label>
             <label for="phone-number">
               <h3>
                 Phone Number
-                <span class="error-message">Wrong format</span>
+                <span class="error-message hidden">Wrong format</span>
               </h3>
               <input id="full-name" type="text" placeholder="+1202-555-0136">
             </label>
@@ -146,28 +146,28 @@
             <label for="address">
               <h3>
                 Your Address
-                <span class="error-message">Wrong format</span>
+                <span class="error-message hidden">Wrong format</span>
               </h3>
               <input id="address" type="text" placeholder="1137 Williams Avenue">
             </label>
             <label for="zip-code">
               <h3>
                 Zip Code
-                <span class="error-message">Wrong format</span>
+                <span class="error-message hidden">Wrong format</span>
               </h3>
               <input id="zip-code" type="text" placeholder="10001">
             </label>
             <label for="city">
               <h3>
                 Your Address
-                <span class="error-message">Wrong format</span>
+                <span class="error-message hidden">Wrong format</span>
               </h3>
               <input id="city" type="text" placeholder="New York">
             </label>
             <label for="country">
               <h3>
                 Country
-                <span class="error-message">Wrong format</span>
+                <span class="error-message hidden">Wrong format</span>
               </h3>
               <input id="country" type="text" placeholder="United States">
             </label>
@@ -183,7 +183,7 @@
                 Payment Method
               </h3>
               <label for="e-money">
-                <input type="radio" name="payment-method" id="e-Money" value="e-Money">
+                <input type="radio" name="payment-method" id="e-Money" value="e-Money" checked>
                 <h4>e-Money</h4>
               </label>
               <label for="cash-delivery">
@@ -195,17 +195,23 @@
               <label for="e-money-num">
                 <h3>
                   e-Money Number
-                  <span class="error-message">Wrong format</span>
+                  <span class="error-message hidden">Wrong format</span>
                 </h3>
                 <input type="text" placeholder="238521993" id="e-money-num">
               </label>
               <label for="e-money-pin">
                 <h3>
                   e-Money PIN
-                  <span class="error-message">Wrong format</span>
+                  <span class="error-message hidden">Wrong format</span>
                 </h3>
                 <input type="text" placeholder="6891" id="e-money-pin">
               </label>
+            </div>
+            <div id="cash-delivery-container">
+              <img src="assets/checkout/icon-cash-on-delivery.svg" class="cash-delivery-icon" alt="Cash Delivery Icon">
+              <p>
+                The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.
+              </p>
             </div>
           </article>
         </fieldset>

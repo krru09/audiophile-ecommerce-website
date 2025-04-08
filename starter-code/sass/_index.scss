@@ -125,6 +125,7 @@
   }
 }
 
+.header-category-container, 
 .category-container {
   transition: .5s;
   position: relative;
@@ -150,6 +151,7 @@
   place-items: center;
 }
 
+.header-category-grey-container, 
 .category-grey-background {
   transition: .5s;
   background-color: $light-gray;
