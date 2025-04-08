@@ -12,9 +12,51 @@
 </head>
 <body>
   <header id="header">
-    <button class="header-button" id="hamburger-button">
-      <img src="assets/shared/tablet/icon-hamburger.svg">
-    </button>
+    <div id="hamburger-button-container">
+      <button class="header-button" id="hamburger-button">
+        <img src="assets/shared/tablet/icon-hamburger.svg">
+      </button>
+      <dialog id="hamburger-menu-open" open>
+        <section class="category-options">
+          <article class="header-category-container">
+            <img src="assets/shared/desktop/image-category-thumbnail-headphones.png" class="category-image" alt="XX Mark 1 Headphones">
+            <div class="header-category-grey-container">
+              <div class="category-content">
+                <h2 class="category-name">HEADPHONES</h2>
+                <a href="headphones.html" class="category-shop-button">
+                  <span class="opacity-shop">SHOP</span>
+                  <img src="assets/shared/desktop/icon-arrow-right.svg">
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="header-category-container">
+            <img src="assets/shared/desktop/image-category-thumbnail-speakers.png" class="category-image" alt="ZX9 Speakers">
+            <div class="header-category-grey-container">
+              <div class="category-content">
+                <h2 class="category-name">SPEAKERS</h2>
+                <a href="speakers.html" class="category-shop-button">
+                  <span class="opacity-shop">SHOP</span>
+                  <img src="assets/shared/desktop/icon-arrow-right.svg">
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="header-category-container">
+            <img src="assets/shared/desktop/image-category-thumbnail-earphones.png" class="category-image earphones" alt="YX1 Earphones">
+            <div class="header-category-grey-container">
+              <div class="category-content">
+                <h2 class="category-name">EARPHONES</h2>
+                <a href="earphones.html" class="category-shop-button">
+                  <span class="opacity-shop">SHOP</span>
+                  <img src="assets/shared/desktop/icon-arrow-right.svg">
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+      </dialog>
+    </div>
     <button id="audiophile-header-button">
       <img src="assets/shared/desktop/logo.svg" class="audiophile-logo">
     </button>
