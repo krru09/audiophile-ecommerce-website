@@ -11,19 +11,21 @@
 
 .orange-button:hover, .orange-button:active {
   background-color: $tangerine;
+  color: $white;
 }
 
 
 // zx9 button 
 .zx9-button:visited {
-  color: white;
+  color: $white;
 }
 .zx9-button:hover, .zx9-button:active {
   background-color: #4c4c4c;
+  color: $white;
 }
 .zx9-button {
   background-color: black;
-  color: white;
+  color: $white;
   width: 10rem;
   height: 3rem;
 }
@@ -42,6 +44,7 @@
   width: 10rem;
   height: 3rem; 
   border: 1px solid $black;
+  color: $black;
 }
 
 // category shop button
