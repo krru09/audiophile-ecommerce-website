@@ -27,6 +27,9 @@ html, body {
 
   width: 100%;
   min-height: 100%;
+
+  // this so unwanted horizontal bars pop up when doing the css transformations.... particularly translateX
+  overflow-x: hidden;
 }
 
 // media queries

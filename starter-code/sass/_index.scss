@@ -97,26 +97,14 @@
   }
 }
 
-@keyframes easeInCategory {
-  from {
-    opacity: 0;
-    transform: translateY(50%);
-  } to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 // category section
 .category-options {
   display: grid;
   gap: 1rem;
 
+  animation: easeIn 1s forwards;
   @include mq(768px) {
     grid-template-columns: auto auto auto;
-  }
-
-  @include mq(1440px) {
     animation: easeInCategory 1s forwards;
   }
 }
@@ -202,16 +190,6 @@
   grid-template-columns: 1fr;
 }
 
-@keyframes easeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  } to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 .zx9-content {
   text-align: center;
   display: grid;
@@ -219,15 +197,15 @@
   gap: 1.5rem;
   max-width: 21.813rem;
 
+  animation-name: easeInRight;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
   @include mq(1440px) {
     text-align: left;
     justify-items: revert;
     min-width: 15rem;
     margin-right: 5.938rem;
-    
-    animation-name: easeInRight;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
   }
 }
 
@@ -264,33 +242,17 @@
   }
 }
 
-@keyframes easeInTop {
-  from {
-    opacity: 0;
-    transform: translateY(-10%);
-  } to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes easeInBottom {
-  from {
-    opacity: 0;
-    transform: translateY(100%);
-  } to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .zx9-see-product-img {
   width: 10.766rem;
   margin-top: 3.438rem;
 
+  animation-name: easeInLeft;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
   @include mq(768px) {
     max-width: 12.313rem;
-    width: 100%; 
+    width: 100%;
   }
 
   @include mq(1440px) {
@@ -334,7 +296,16 @@
 .zx7-see-product-image, .yx1-see-product-image {
   border-radius: .5rem;
   z-index: -1;
+  
   animation: easeInTop 1.5s forwards;
+}
+
+.zx7-see-product-image {
+  animation: easeInLeft 1s forwards;
+}
+
+.yx1-see-product-image {
+  animation: easeInRight 1s forwards;
 }
 
 .zx7-description, .yx1-description {
@@ -350,31 +321,17 @@
   z-index: 1000;
 }
 
-@keyframes easeIn {
-  from {
-    opacity: 0;
-  } to {
-    opacity: 1;
-  }
-}
-
 .zx7-description {
+  animation: easeIn 2s forwards;
   @include mq(768px) {
     left: 3.875rem;
-  }
-
-  @include mq(1440px) {
-    animation: easeIn 2s forwards;
   }
 }
 
 .yx1-description {
+  animation: easeIn 2s forwards;
   @include mq(1440px) {
     left: 3.875rem;
-  }
-
-  @include mq(1440px) {
-    animation: easeIn 2s forwards;
   }
 }
 
@@ -401,15 +358,6 @@
 }
 
 /* best audio section */
-@keyframes easeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50%);
-  } to {
-    opacity: 1;
-    transform: translateX(0)
-  }
-}
 
 #best-audio-gear {
   display: grid;
@@ -435,6 +383,8 @@
   grid-area: audio-img;
   border-radius: .5rem;
 
+  animation: easeInTop 1s forwards;
+
   @include mq(1440px) {
     animation: easeInRight 1s forwards;
   }
@@ -445,6 +395,8 @@
   text-align: center; 
   display: grid;
   gap: 2rem; 
+
+  animation: easeInBottom 1s forwards;
 
   @include mq(768px) {
     max-width: 35.813rem;

@@ -39,6 +39,7 @@
   grid-template-areas:
     'product-image'
     'product-content';
+  animation: easeInLeft 1s forwards;
 
   @include mq(1024px) {
     grid-template-columns: 1fr 1fr;
@@ -51,6 +52,7 @@
 }
 
 .reverse {
+  animation: easeInRight 1s forwards;
   @include mq(1024px) {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:

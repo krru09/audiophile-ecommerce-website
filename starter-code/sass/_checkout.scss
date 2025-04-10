@@ -41,6 +41,7 @@
     'checkout-form';
   gap: 2rem;
 
+  animation: easeIn 1s forwards;
   // error
   .error-message {
     font-weight: normal;
@@ -348,6 +349,7 @@
 
   height: fit-content;
 
+  animation: easeIn 1s forwards;
   h2 {
     grid-area: header;
     height: fit-content;
