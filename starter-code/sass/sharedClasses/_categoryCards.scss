@@ -1,0 +1,85 @@
+// category section
+.category-options {
+  display: grid;
+  gap: 1rem;
+
+  animation: easeIn 1s forwards;
+  @include mq(768px) {
+    grid-template-columns: auto auto auto;
+    animation: easeInCategory 1s forwards;
+  }
+}
+
+@include mq(768px) {
+  .category-container:hover {
+    transform: scaleY(1.5);
+    transform-origin: bottom;
+  
+    .category-grey-background {
+      transform: scaleY(1);
+      transform-origin: bottom;
+    }
+    
+    .category-grey-background > * {
+      transform: scaleY(calc(1/1.5));
+    }
+  }
+  
+  .category-container:hover > * {
+    transform: scaleY(calc(1/1.5));
+  }
+}
+
+.header-category-container, 
+.category-container {
+  transition: .5s;
+  position: relative;
+  height: 13.563rem;
+}
+
+.category-image {
+  object-fit: cover; 
+  max-width: 8rem;
+
+  position: absolute;
+  top: 0; 
+  left: 0;
+  right: 0;
+  margin: auto; 
+  
+  z-index: 1000;
+}
+
+.category-content {
+  display: grid;
+  gap: 1rem;
+  place-items: center;
+}
+
+.header-category-grey-container, 
+.category-grey-background {
+  transition: .5s;
+  background-color: $light-gray;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10.313rem;
+  border-radius: .5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.category-name {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: black;
+  margin-top: 2.5rem;
+}
+
+.earphones {
+  max-width: 9rem;
+}

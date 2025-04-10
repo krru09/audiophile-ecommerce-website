@@ -1,0 +1,131 @@
+/* footer section */
+#footer {
+  background-color: $black;
+  text-align: center;
+  display: grid;
+  grid-template-areas: 
+    'rectangle'
+    'logo'
+    'links'
+    'desc'
+    'copyright'
+    'socials';
+  gap: 3rem;
+  place-items: center; 
+  
+  padding: 0 1.5rem 2.375rem 1.5rem;
+
+  @include mq(768px) {
+    text-align: left;
+    place-items: start;
+    gap: 2rem; 
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas:
+    'rectangle rectangle'
+    'logo logo'
+    'links links'
+    'desc desc'
+    'copyright socials';
+  }
+
+  @include mq(1440px) {
+    gap: 2.25rem;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+    'rectangle rectangle'
+    'logo links'
+    'desc socials'
+    'copyright copyright';
+
+    align-items: end;
+    padding-inline: min(10.313rem, 11%);
+  }
+}
+
+.audiophile-logo:hover {
+  filter: invert(54%) sepia(37%) saturate(812%) hue-rotate(337deg) brightness(97%) contrast(82%);
+}
+
+.audiophile-logo {
+  cursor: pointer;
+  grid-area: logo;
+}
+
+.footer-rectangle {
+  grid-area: rectangle;
+  margin-top: 0;
+  opacity: 100%;
+  width: 6.313rem;
+  height: .4rem;
+  background-color: $burnt-orange;
+  border: none;
+}
+
+.navigation-links {
+  grid-area: links;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1rem;
+
+  @include mq(768px) {
+    grid-template-columns: auto auto auto auto;
+  }
+  
+  @include mq(1440px) {
+    place-self: end; 
+  }
+}
+
+.navigation-links a:hover {
+  color: $burnt-orange;
+}
+
+.navigation-links a {
+  color: white;
+  font-size: 0.875rem;
+  letter-spacing: 2px;
+  line-height: 1.625rem;
+  cursor: pointer;
+}
+
+#footer-description, #footer-copyright {
+  color: white;
+  opacity: 50%;
+}
+
+#footer-description {
+  grid-area: desc;
+  max-width: 33.75rem;
+}
+
+#footer-copyright {
+  grid-area: copyright;
+  font-weight: bold;
+}
+
+#footer-links a:hover {
+  filter: invert(54%) sepia(37%) saturate(812%) hue-rotate(337deg) brightness(97%) contrast(82%);
+}
+
+#footer-links a {
+  cursor: pointer;
+}
+
+#footer-links {
+  grid-area: socials;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @include mq(768px) {
+    place-self: end;
+  }
+}
+
+#footer-links a {
+  width: 1.5rem;
+  height: 1.5rem;
+}

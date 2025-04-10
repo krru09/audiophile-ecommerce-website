@@ -86,3 +86,94 @@
   background: none;
   display: revert;
 }
+
+// cart buttons
+.product-add-cart-buttons {
+  max-height: 3rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.quantity-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 7.5rem;
+
+  background-color: $light-gray;
+  gap: 1.25rem;
+}
+
+.quantity-button p {
+  color: black;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.quantity-button > button {
+  opacity: 25%;
+}
+
+.decrement-button {
+  width: 100%;
+  height: 100%;
+}
+
+.increment-button {
+  width: 100%;
+  height: 100%;
+}
+
+// cart modal buttons
+#close-cart-button:hover, #close-cart-button:active {
+  filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1385%) hue-rotate(327deg) brightness(90%) contrast(86%);
+}
+
+#close-cart-button {
+  background: none;
+}
+
+#remove-all-button:hover, #remove-all-button:active {
+  color: $burnt-orange;
+}
+
+#remove-all-button {
+  letter-spacing: 0;
+  text-decoration: underline;
+  background: none;
+  font-weight: normal;
+  line-height: 1.5rem;
+  color: $default-font-color;
+}
+
+.cart-quantity-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 6rem;
+  height: 2rem;
+  background-color: $light-gray;
+}
+
+.cart-quantity-button .decrement-button,
+.cart-quantity-button .increment-button {
+  color: $default-font-color;
+}
+
+.cart-quantity-button p {
+  color: $black;
+  font-weight: bold;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+}
+
+#checkout-button {
+  width: 100%;
+}
+
+// confirmation modal buttons 
+#back-to-home-button {
+  width: 100%;
+}
