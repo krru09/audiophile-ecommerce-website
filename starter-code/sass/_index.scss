@@ -1,3 +1,103 @@
+// header
+#header {
+  z-index: 1001;
+  position: sticky;
+  top: 0;
+
+  background-color: #1c1c1c;
+  border-bottom: 1px solid white;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'hamburger-button audiophile-header-button cart-button';
+  align-items: center;
+
+  padding-top: 2.375rem;
+  padding-inline: 1.5rem;
+  padding-bottom: 2rem;
+
+  @include mq(768px) {
+    grid-template-columns: 1rem 1fr 1.438rem;
+    padding-inline: 2.5rem;
+    gap: 2.625rem;
+  }
+
+  @include mq(1440px) {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'audiophile-header-button nav cart-button';
+    gap: 0;
+    padding-inline: 10.313rem;
+  }
+}
+
+#header-nav a:hover, #header-nav a:active {
+  color: $burnt-orange;
+}
+
+#header-nav {
+  display: none;
+
+  @include mq(1440px) {
+    grid-area: nav;
+    place-self: center;
+  
+    display: flex;
+    gap: 2.125rem;
+  
+    color: $white;
+  }
+}
+
+#audiophile-header-button {
+  grid-area: audiophile-header-button;
+  place-self: center;
+  background: none;
+
+  @include mq(768px) {
+    place-self: start;
+  }
+}
+
+#hamburger-button-container {
+  grid-area: hamburger-button;
+
+  @include mq(1440px) {
+    display: none;
+  }
+}
+
+#hamburger-menu-open {
+  display: none; // display: block; when user clicks
+  background-color: $white;
+  width: 100%;
+  border: none;
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  padding: 2rem 1.5rem;
+
+  position: absolute;
+  top: 100%;
+}
+
+#hamburger-button {
+  max-height: 1rem;
+  max-width: 1rem;
+}
+
+#cart-button-container {
+  grid-area: cart-button;
+  place-self: end;
+}
+
+#cart-button {
+  max-height: 1.25rem;
+  max-width: 1.438rem;
+}
+
 /* hero section */
 #hero-section {
   margin-top: 0;

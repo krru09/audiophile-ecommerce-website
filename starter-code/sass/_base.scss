@@ -29,6 +29,9 @@ html, body {
   min-height: 100%;
 
   // this so unwanted horizontal bars pop up when doing the css transformations.... particularly translateX
+}
+
+#main {
   overflow-x: hidden;
 }
 
@@ -92,6 +95,14 @@ a {
   text-decoration: none;
 }
 
+@keyframes easeOut {
+  from {
+    opacity: 1;
+  } to {
+    opacity: 0;
+  }
+}
+
 .hidden {
-  display: none;
+  display: none!important;
 }
