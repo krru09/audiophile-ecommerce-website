@@ -14,17 +14,17 @@
 <body>
   <header id="header">
     <div id="hamburger-button-container">
-      <button class="header-button" id="hamburger-button">
+      <button class="header-button" id="hamburger-button" title="Toggle hamburger menu">
         <img src="assets/shared/tablet/icon-hamburger.svg">
       </button>
-      <dialog id="hamburger-menu-open" open>
+      <dialog id="hamburger-menu" class="hidden" open>
         <section class="category-options">
           <article class="header-category-container">
             <img src="assets/shared/desktop/image-category-thumbnail-headphones.png" class="category-image" alt="XX Mark 1 Headphones">
             <div class="header-category-grey-container">
               <div class="category-content">
                 <h2 class="category-name">HEADPHONES</h2>
-                <a href="headphones.html" class="category-shop-button">
+                <a href="headphones.html" class="category-shop-button" title="go to Headphones category page">
                   <span class="opacity-shop">SHOP</span>
                   <img src="assets/shared/desktop/icon-arrow-right.svg">
                 </a>
@@ -36,7 +36,7 @@
             <div class="header-category-grey-container">
               <div class="category-content">
                 <h2 class="category-name">SPEAKERS</h2>
-                <a href="speakers.html" class="category-shop-button">
+                <a href="speakers.html" class="category-shop-button" title="Go to speaker category page">
                   <span class="opacity-shop">SHOP</span>
                   <img src="assets/shared/desktop/icon-arrow-right.svg">
                 </a>
@@ -48,7 +48,7 @@
             <div class="header-category-grey-container">
               <div class="category-content">
                 <h2 class="category-name">EARPHONES</h2>
-                <a href="earphones.html" class="category-shop-button">
+                <a href="earphones.html" class="category-shop-button" title="go to Earphones category pages">
                   <span class="opacity-shop">SHOP</span>
                   <img src="assets/shared/desktop/icon-arrow-right.svg">
                 </a>
@@ -58,89 +58,34 @@
         </section>
       </dialog>
     </div>
-    <a href="index.html" id="audiophile-header-button">
-      <img src="assets/shared/desktop/logo.svg" class="audiophile-logo">
+    <a href="index.html" id="audiophile-header-button" title="Go back to the Audiophile home page">
+      <img src="assets/shared/desktop/logo.svg" class="audiophile-logo" alt="audiophile logo">
     </a>
     <nav id="header-nav">
-      <a href="index.html">HOME</a>
-      <a href="headphones.html">HEADPHONES</a>
-      <a href="speakers.html">SPEAKERS</a>
-      <a href="earphones.html">EARPHONES</a>
+      <a href="index.html" title="Go to Audiophile Home page">HOME</a>
+      <a href="headphones.html" title="Go to Audiophile category page">HEADPHONES</a>
+      <a href="speakers.html" title="Go to Speaker category page">SPEAKERS</a>
+      <a href="earphones.html" title="Go to Earphones category page">EARPHONES</a>
     </nav>
     <div id="cart-button-container">
-      <button class="header-button" id="cart-button">
-        <img src="assets/shared/desktop/icon-cart.svg">
+      <button class="header-button" id="cart-button" title="Toggle cart modal">
+        <img src="assets/shared/desktop/icon-cart.svg" alt="cart icon">
       </button>
-      <dialog id="cart" open>
+      <dialog id="cart" class="hidden">
         <section id="cart-header">
-          <button id="close-cart-button">
-            <img src="assets/cart/close-icon.svg">
+          <button id="close-cart-button" title="close cart modal">
+            <img src="assets/cart/close-icon.svg" alt="close cart icon">
           </button>
           <div id="cart-title-container">
-            <h1 id="cart-title">CART (3)</h1>
-            <button id="remove-all-button">Remove all</button>
+            <h1 id="cart-title">CART (<span id="cart-quantity">0</span>)</h1>
+            <button id="remove-all-button" title="Remove all products from cart">Remove all</button>
           </div>
         </section>
-        <section id="cart-products">
-          <article class="cart-product">
-            <div class="product-details-container">
-              <img src="assets/cart/image-xx99-mark-two-headphones.jpg" class="product-image">
-              <div class="cart-product-details">
-                <h2>XX99 MK II</h2>
-                <h3>$ 2,999</h3>
-              </div>
-            </div>
-            <div class="cart-quantity-button">
-              <button class="decrement-button">
-                -
-              </button>
-              <p>1</p>
-              <button class="increment-button">
-                +
-              </button>
-            </div>
-          </article>
-          <article class="cart-product">
-            <div class="product-details-container">
-              <img src="assets/cart/image-xx59-headphones.jpg" class="product-image">
-              <div class="cart-product-details">
-                <h2>XX59</h2>
-                <h3>$ 899</h3>
-              </div>
-            </div>
-            <div class="cart-quantity-button">
-              <button class="decrement-button">
-                -
-              </button>
-              <p>1</p>
-              <button class="increment-button">
-                +
-              </button>
-            </div>
-          </article>
-          <article class="cart-product">
-            <div class="product-details-container">
-              <img src="assets/cart/image-yx1-earphones.jpg" class="product-image">
-              <div class="cart-product-details">
-                <h2>YX1</h2>
-                <h3>$ 599</h3>
-              </div>
-            </div>
-            <div class="cart-quantity-button">
-              <button class="decrement-button">
-                -
-              </button>
-              <p>1</p>
-              <button class="increment-button">
-                +
-              </button>
-            </div>
-          </article>
-        </section>
+        <section id="cart-products"></section>
         <section id="cart-checkout">
           <div id="cart-total">
             <h2>TOTAL</h2>
-            <h3>$ 5,396</h3>
+            <h3>$ <span id="cart-total-price">0</span></h3>
           </div>
           <button id="checkout-button" class="orange-button">CHECKOUT</button>
         </section>

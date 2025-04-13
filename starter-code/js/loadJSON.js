@@ -16,6 +16,7 @@ async function loadJSON() {
   }
 }
 
+// this function makes sure that loadJSON() is only called once, and that each page can just reference this function which returns the jsonPromise
 let jsonPromise = null;
 export async function getJsonPromise() {
   if (!jsonPromise) {

@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     data.forEach(product => {
       productData.push(product);
     });
-    console.log(productData);
   } catch (error) {
     console.error("There was an error: ", error);
   }

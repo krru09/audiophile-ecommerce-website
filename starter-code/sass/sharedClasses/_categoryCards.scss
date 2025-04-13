@@ -1,4 +1,13 @@
 // category section
+.header-category-options {
+  display: grid;
+  gap: 1rem;
+  
+  @include mq(768px) {
+    grid-template-columns: auto auto auto;
+  }
+}
+
 .category-options {
   display: grid;
   gap: 1rem;
