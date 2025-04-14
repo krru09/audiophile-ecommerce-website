@@ -5,7 +5,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  display: none; // display: grid; when open
+  display: grid; // display: grid; when open
   animation: easeIn .5s forwards;
   gap: 1.5rem;
   border: none;

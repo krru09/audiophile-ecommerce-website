@@ -87,7 +87,7 @@
             <h2>TOTAL</h2>
             <h3>$ <span id="cart-total-price">0</span></h3>
           </div>
-          <button id="checkout-button" class="orange-button">CHECKOUT</button>
+          <a href="checkout.html" id="checkout-button" class="orange-button" title="Checkout page" aria-label="Checkout your order">CHECKOUT</a>
         </section>
       </dialog>
     </div>
@@ -107,7 +107,7 @@
                 Name
                 <span class="error-message hidden">Wrong format</span>
               </h3>
-              <input id="full-name" type="text" placeholder="Alexei Ward">
+              <input id="full-name" type="text" placeholder="Alexei Ward" required>
             </label>
             <label for="email-address">
               <h3>
@@ -206,31 +206,7 @@
     </section>
     <section id="order-summary">
       <h2>SUMMARY</h2>
-      <section id="cart-products">
-        <article>
-          <img src="assets/cart/image-xx99-mark-two-headphones.jpg">
-          <div class="cart-product-details">
-            <h3>XX99 MK II</h3>
-            <h4>$ 2,999</h4>
-          </div>
-          <p>x1</p>
-        </article>
-        <article>
-          <img src="assets/cart/image-xx59-headphones.jpg">
-          <div class="cart-product-details">
-            <h3>XX59</h3>
-            <h4>$ 899</h4>
-          </div>
-          <p>x2</p>
-        </article>
-        <article>
-          <img src="assets/cart/image-yx1-earphones.jpg">
-          <div class="cart-product-details">
-            <h3>YX1</h3>
-            <h4>$ 599</h4>
-          </div>
-          <p>x1</p>
-        </article>
+      <section id="checkout-products">
       </section>
       <section class="cart-calculations-container">
         <section id="cart-calculations">
@@ -252,10 +228,10 @@
           <h4 class="orange-text">$ 5,446</h4>
         </section>
       </section>
-      <button class="orange-button">CONTINUE & PAY</button>
+      <button id="pay-button" class="orange-button">CONTINUE & PAY</button>
     </section>
   </main>
-  <dialog id="checkout-complete-container" open>
+  <dialog id="checkout-complete-container" class="hidden">
     <div id="checkout-details-container">
       <img src="assets/checkout/icon-order-confirmation.svg" alt="Order Confirmed Checkmark" id="confirmation-checkmark">
       <div id="checkout-details-text">
@@ -310,6 +286,8 @@
       <a title="Audiophiles Instagram Page" aria-label="Go to Audiophile's Instagram Page"><img src="assets/shared/desktop/icon-instagram.svg"></a>
     </section>
   </footer>
+  <script src="js/main.js" type="module"></script>
+  <script src="js/pages/checkout.js" type="module"></script>
 </body>
 
 </html>

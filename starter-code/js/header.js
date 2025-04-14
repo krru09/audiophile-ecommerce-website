@@ -1,4 +1,4 @@
-const cart = [
+export const cart = [
   {
     id: 4,
     name: "XX99 Mark Two Headphones",
@@ -39,7 +39,7 @@ export function headerEventListeners() {
   });
 }
 
-function toggleModal(modalContainer) {
+export function toggleModal(modalContainer) {
   if (modalContainer.classList.contains("hidden")) {
     modalContainer.classList.remove("hidden");
   } else {

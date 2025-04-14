@@ -342,7 +342,7 @@
   grid-template-rows: auto;
   grid-template-areas:
     'header'
-    'cart-products'
+    'checkout-products'
     'cart-calculations'
     'continue-button';
   gap: 2rem; 
@@ -355,13 +355,13 @@
     height: fit-content;
   }
 
-  #cart-products {
-    grid-area: cart-products;
+  #checkout-products {
+    grid-area: checkout-products;
     display: grid;
     gap: 1.5rem;
   }
 
-  #cart-products article {
+  #checkout-products article {
     display: grid;
     grid-template-columns: 4rem 2fr 1fr;
     grid-template-rows: auto;
