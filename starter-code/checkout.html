@@ -107,21 +107,21 @@
                 Name
                 <span class="error-message hidden">Wrong format</span>
               </h3>
-              <input id="full-name" type="text" placeholder="Alexei Ward" required>
+              <input id="full-name" type="text" placeholder="Alexei Ward">
             </label>
             <label for="email-address">
               <h3>
                 Email Address
                 <span class="error-message hidden">Wrong format</span>
               </h3>
-              <input id="full-name" type="text" placeholder="alexei@mail.com">
+              <input id="email-address" type="text" placeholder="alexei@mail.com">
             </label>
             <label for="phone-number">
               <h3>
                 Phone Number
                 <span class="error-message hidden">Wrong format</span>
               </h3>
-              <input id="full-name" type="text" placeholder="+1202-555-0136">
+              <input id="phone-number" type="text" placeholder="+1202-555-0136">
             </label>
           </article>
         </fieldset>
@@ -164,13 +164,13 @@
           <legend>
             <h2>PAYMENT</h2>
           </legend>
-          <article class="payment-container">
+          <article id="payment-container">
             <div class="radio-options-container">
               <h3 class="payment-title">
                 Payment Method
               </h3>
               <label for="e-money">
-                <input type="radio" name="payment-method" id="e-Money" value="e-Money" checked>
+                <input type="radio" name="payment-method" id="e-money" value="e-Money" checked>
                 <h4>e-Money</h4>
               </label>
               <label for="cash-delivery">
@@ -178,7 +178,7 @@
                 <h4>Cash on Delivery</h4>
               </label>
             </div>
-            <div class="e-money-input-container">
+            <div id="e-money-input-container">
               <label for="e-money-num">
                 <h3>
                   e-Money Number
@@ -194,7 +194,7 @@
                 <input type="text" placeholder="6891" id="e-money-pin">
               </label>
             </div>
-            <div id="cash-delivery-container">
+            <div id="cash-delivery-container" class="hidden">
               <img src="assets/checkout/icon-cash-on-delivery.svg" class="cash-delivery-icon" alt="Cash Delivery Icon">
               <p>
                 The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.
@@ -228,7 +228,7 @@
           <h4 class="orange-text">$ 5,446</h4>
         </section>
       </section>
-      <button id="pay-button" class="orange-button">CONTINUE & PAY</button>
+      <button type="submit" id="pay-button" class="orange-button" title="Complete your order" aria-label="Complete your order">CONTINUE & PAY</button>
     </section>
   </main>
   <dialog id="checkout-complete-container" class="hidden">

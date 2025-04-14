@@ -48,6 +48,10 @@
     color: $error;
   }
 
+  .error-border {
+    border: 1px solid $error;
+  }
+
   // #checkout elements
   h1 {
     grid-area: checkout-header;
@@ -236,7 +240,7 @@
     
     row-gap: 1rem;
   
-    .payment-container {
+    #payment-container {
       grid-area: payment-container;
       
       display: grid;
@@ -266,7 +270,7 @@
       }
     }
   
-    .e-money-input-container {
+    #e-money-input-container {
       grid-area: e-money;
       display: grid;
       grid-template-areas:
@@ -319,7 +323,7 @@
 
     #cash-delivery-container {
       // grid-area: cash-delivery-container;
-      display: none; // display: flex; when user picks cash on delivery
+      display: flex; // display: flex; when user picks cash on delivery
       gap: 2rem;
       align-items: center;
     }
