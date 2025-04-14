@@ -12,7 +12,7 @@
   }
 }
 
-.product-details-grid {
+#product-details-grid {
   display: grid;
   gap: 5.5rem;
 
@@ -29,7 +29,7 @@ h2 {
   line-height: 2.25rem;
 }
 
-.product-details {
+#product-details {
   display: grid;
   gap: 2rem;
   grid-template-columns: auto;
@@ -50,7 +50,7 @@ h2 {
     } 
 }
 
-.product-details img {
+#product-details img {
   grid-area: product-image;
   animation: easeInTop 1s forwards;
 
@@ -59,7 +59,7 @@ h2 {
   } 
 }
 
-.product-details-content {
+#product-details-content {
   display: grid;
   gap: 1.5rem;
 
@@ -95,7 +95,7 @@ h2 {
   letter-spacing: 1.29px;
 }
 
-.product-purchase {
+#product-purchase {
   grid-area: product-purchase;
   display: grid;
   grid-gap: 2rem; 
@@ -143,16 +143,16 @@ h2 {
   }
 }
 
-.product-box {
+#product-box {
   grid-area: product-box;
 }
 
-.product-features, .product-box {
+.product-features, #product-box {
   display: grid;
   gap: 1.5rem;
 }
 
-.product-box {
+#product-box {
   height: fit-content;
   grid-template-areas:
     'box-header'
@@ -174,7 +174,7 @@ h2 {
 }
 
 // product box
-.product-box h2 {
+#product-box h2 {
   grid-area: box-header;
 }
 
@@ -197,7 +197,7 @@ li {
 }
 
 // image gallery
-.gallery-container {
+#gallery-container {
   display: grid;
   gap: 1.25rem;
 
@@ -219,7 +219,7 @@ li {
   
 }
 
-.gallery-container img {
+#gallery-container img {
   border-radius: .5rem;
   height: 100%;
 }
@@ -252,7 +252,7 @@ li {
 }
 
 // products may like
-.products-may-like-container {
+#products-may-like-container {
   display: grid;
   gap: 2.5rem;
 
@@ -262,7 +262,7 @@ li {
   }
 }
 
-.products-may-like-container h2 {
+#products-may-like-container h2 {
   animation: easeInTop 1s forwards;
 }
 
@@ -279,7 +279,7 @@ li {
 }
 
 
-.products-may-like-list {
+#products-may-like-list {
   display: grid;
   gap: 3.5rem;
   grid-template-areas:
@@ -295,18 +295,18 @@ li {
   }
 }
 
-.products-may-like-list img {
+#products-may-like-list img {
   border-radius: .5rem;
 }
 
-.products-may-like-list article {
+#products-may-like-list article {
   text-align: center;
   display: grid;
   gap: 2rem;
   place-items: center;
 }
 
-.products-may-like-list h3 {
+#products-may-like-list h3 {
   font-size: 1.5rem;
   letter-spacing: 1.71px;
   color: black;

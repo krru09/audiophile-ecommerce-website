@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       <picture>
         <source media="(min-width:1024px)" srcset="${product.categoryImage.desktop}">
         <source media="(min-width: 768px)" srcset="${product.categoryImage.tablet}">
-        <img src="${product.categoryImage.mobile}" class="category-product-image" alt="XX99 Mark II Headphones">
+        <img src="${product.categoryImage.mobile}" class="category-product-image" alt="${product.name}">
       </picture>
     `;
 
@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         ${modelName}<br>${prodCategory}
       </h2>
       <h3 class="category-description">
-        The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.
+        ${product.description}
       </h3>
-      <a href="product-xx99-mark-two-headphones.html" class="orange-button">SEE PRODUCT</a>
+      <a href="product-${product.slug}.html" class="orange-button">SEE PRODUCT</a>
     `;
 
     productContainer.append(categoryContentContainer);
