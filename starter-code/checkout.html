@@ -105,21 +105,21 @@
             <label for="full-name">
               <h3>
                 Name
-                <span class="error-message hidden">Wrong format</span>
+                <span class="error-message" id="name-error"></span>
               </h3>
               <input id="full-name" type="text" placeholder="Alexei Ward">
             </label>
             <label for="email-address">
               <h3>
                 Email Address
-                <span class="error-message hidden">Wrong format</span>
+                <span class="error-message" id="email-error"></span>
               </h3>
               <input id="email-address" type="text" placeholder="alexei@mail.com">
             </label>
             <label for="phone-number">
               <h3>
                 Phone Number
-                <span class="error-message hidden">Wrong format</span>
+                <span class="error-message" id="phone-error"></span>
               </h3>
               <input id="phone-number" type="text" placeholder="+1202-555-0136">
             </label>
@@ -133,28 +133,28 @@
             <label for="address">
               <h3>
                 Your Address
-                <span class="error-message hidden">Wrong format</span>
+                <span class="error-message" id="address-error"></span>
               </h3>
               <input id="address" type="text" placeholder="1137 Williams Avenue">
             </label>
             <label for="zip-code">
               <h3>
                 Zip Code
-                <span class="error-message hidden">Wrong format</span>
+                <span class="error-message" id="zip-error"></span>
               </h3>
               <input id="zip-code" type="text" placeholder="10001">
             </label>
             <label for="city">
               <h3>
-                Your Address
-                <span class="error-message hidden">Wrong format</span>
+                City
+                <span class="error-message" id="city-error"></span>
               </h3>
               <input id="city" type="text" placeholder="New York">
             </label>
             <label for="country">
               <h3>
                 Country
-                <span class="error-message hidden">Wrong format</span>
+                <span class="error-message" id="country-error"></span>
               </h3>
               <input id="country" type="text" placeholder="United States">
             </label>
@@ -182,14 +182,14 @@
               <label for="e-money-num">
                 <h3>
                   e-Money Number
-                  <span class="error-message hidden">Wrong format</span>
+                  <span class="error-message" id="e-money-num-error"></span>
                 </h3>
                 <input type="text" placeholder="238521993" id="e-money-num">
               </label>
               <label for="e-money-pin">
                 <h3>
                   e-Money PIN
-                  <span class="error-message hidden">Wrong format</span>
+                  <span class="error-message" id="e-money-pin-error"></span>
                 </h3>
                 <input type="text" placeholder="6891" id="e-money-pin">
               </label>
@@ -288,6 +288,7 @@
   </footer>
   <script src="js/main.js" type="module"></script>
   <script src="js/pages/checkout.js" type="module"></script>
+  <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
 </body>
 
 </html>

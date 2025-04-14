@@ -13,16 +13,105 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   renderOrderSummary(cart);
   togglePaymentMethod();
-  formValidation();
 
-  checkoutForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    toggleModal(checkoutCompleteModal);
-    // we need this set timeout so that the modal actually appears in the dom (the modal is initially hidden with display: none until the user hits submit)
-    setTimeout(() => {
-      scrollToModal(checkoutCompleteModal);
-    }, 50);
-  });
+  const validation = new JustValidate("#checkout-form");
+
+  validation
+    .addField("input[id='full-name']", [
+      {
+        rule: "required",
+        errorMessage: "Required field"
+      }], {
+        errorsContainer: "#name-error"
+      })
+    .addField("input[id='email-address']", [
+      {
+        rule: "required",
+        errorMessage: "Valid email required"
+      }, {
+        rule: "email",
+        errorMessage: "Valid email required"
+      }], {
+        errorsContainer: "#email-error"
+      })
+    .addField("input[id='phone-number']", [
+      {
+        rule: "required",
+        errorMessage: "Phone number required"
+      }], {
+        errorsContainer: "#phone-error"
+      })
+    .addField("input[id='address'", [
+      {
+        rule: "required",
+        errorMessage: "Address required"
+      },
+      {
+        rule: "customRegexp",
+        value: /^[a-zA-Z0-9\s,'-]*$/,
+        errorMessage: "Invalid format"
+      }],
+      {
+        errorsContainer: "#address-error"
+      })
+    .addField("input[id='zip-code'", [
+      {
+        rule: "required",
+        errorMessage: "Zip Code required"
+      },
+      {
+        rule: "number",
+        errorMessage: "Invalid format"
+      }],
+      {
+        errorsContainer: "#zip-error"
+      })
+    .addField("input[id='city']", [
+      {
+        rule: "required",
+        errorMessage: "City required"
+      }], {
+        errorsContainer: "#city-error"
+      })
+    .addField("input[id='country']", [
+      {
+        rule: "required",
+        errorMessage: "Country required"
+      }],
+      {
+        errorsContainer: "#country-error" 
+      })
+    .addField("input[id='e-money-num']", [
+      {
+        rule: "required",
+        errorMessage: "e-Money number required"
+      },
+      {
+        rule: "number",
+        errorMessage: "Numbers only"
+      }], 
+      {
+        errorsContainer: "#e-money-num-error"
+      })
+    .addField("input[id='e-money-pin'", [
+      {
+        rule: "required",
+        errorMessage: "Pin required"
+      },
+      {
+        rule: "number",
+        errorMessage: "Numbers only"
+      }],
+      {
+        errorsContainer: "#e-money-pin-error"
+      })
+      .onSuccess((event) => {
+      event.preventDefault();
+      toggleModal(checkoutCompleteModal);
+      setTimeout(() => {
+        scrollToModal(checkoutCompleteModal);
+      }, 50);
+    });
   
   submitButton.addEventListener("click", () => {
     checkoutForm.requestSubmit();
@@ -80,25 +169,6 @@ function displayPaymentInfo(paymentType) {
 
 function textErrors(textElement) {
   textElement.classList.add("error-border");
-}
-
-function formValidation() {
-  // billing details form validations
-  const billingDetailsFieldset = document.getElementById("billing-details");
-  billingDetailsValidation(billingDetailsFieldset);
-}
-
-function billingDetailsValidation(fieldset) {
-  // this is if any information for billing details is empty
-  const billingInput = fieldset.querySelectorAll("input[type='text']");
-  //console.log(billingInput);
-  billingInput.forEach(input => {
-    input.addEventListener("invalid", (event) => {
-      event.preventDefault();
-      textErrors(input);
-      console.log(input);
-    });
-  });
 }
 
 function renderOrderSummary(cart) {

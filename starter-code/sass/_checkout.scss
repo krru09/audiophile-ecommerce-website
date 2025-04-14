@@ -42,14 +42,24 @@
   gap: 2rem;
 
   animation: easeIn 1s forwards;
+  
   // error
-  .error-message {
-    font-weight: normal;
-    color: $error;
+  .just-validate-error-field {
+    border: 1px solid $error!important;
   }
 
-  .error-border {
-    border: 1px solid $error;
+  .input-container:has(input.just-validate-error-field) {
+    border: 1px solid $error!important;
+  }
+
+  .just-validate-error-label {
+    color: $error!important;
+    display: inline;
+    font-weight: normal;
+  }
+
+  .error-message .hidden {
+    display: none;
   }
 
   // #checkout elements
