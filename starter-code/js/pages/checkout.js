@@ -8,13 +8,16 @@ const submitButton = document.getElementById("pay-button");
 console.log(submitButton);
 const checkoutCompleteModal = document.getElementById("checkout-complete-container");
 
+const validation = new JustValidate("#checkout-form", {
+  ignoreHiddenFields: true,
+});
+
+
 document.addEventListener("DOMContentLoaded", async () => {
   await getJsonPromise();
 
   renderOrderSummary(cart);
   togglePaymentMethod();
-
-  const validation = new JustValidate("#checkout-form");
 
   validation
     .addField("input[id='full-name']", [
@@ -77,10 +80,35 @@ document.addEventListener("DOMContentLoaded", async () => {
       {
         rule: "required",
         errorMessage: "Country required"
+      },
+      {
+        rule: "customRegexp",
+        value: /^[A-Za-z]+$/,
+        errorMessage: "Letters only"
       }],
       {
         errorsContainer: "#country-error" 
       })
+      .onSuccess((event) => {
+      event.preventDefault();
+      toggleModal(checkoutCompleteModal);
+      // we need to use this setTimeout() so that it happens after the modal is registerd in the dom (initial state of modal is display: none)
+      setTimeout(() => {
+        scrollToModal(checkoutCompleteModal);
+      }, 50);
+    });
+  
+  if (document.querySelector("input[value='e-Money']").checked) {
+    eMoneyValidations();
+  }
+
+  submitButton.addEventListener("click", () => {
+    checkoutForm.requestSubmit();
+  });
+});
+
+function eMoneyValidations() {
+  validation
     .addField("input[id='e-money-num']", [
       {
         rule: "required",
@@ -93,7 +121,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       {
         errorsContainer: "#e-money-num-error"
       })
-    .addField("input[id='e-money-pin'", [
+    .addField("input[id='e-money-pin']", [
       {
         rule: "required",
         errorMessage: "Pin required"
@@ -105,22 +133,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       {
         errorsContainer: "#e-money-pin-error"
       })
-      .onSuccess((event) => {
-      event.preventDefault();
-      toggleModal(checkoutCompleteModal);
-      setTimeout(() => {
-        scrollToModal(checkoutCompleteModal);
-      }, 50);
-    });
-  
-  submitButton.addEventListener("click", () => {
-    checkoutForm.requestSubmit();
-  });
-});
+}
 
 function scrollToModal(modal) {
   // modal.getBoundingClientRect().top = the distance from the top of the viewport to the top of the modal
-  // but is relative to the current scroll position, so we add window.scrollY to get the actual distance from the top of the entire document.
+  // modal.getBoundingClientRect().top is relative to the current scroll position, so we add window.scrollY to get the actual distance from the top of the entire document.
   // this gives the absolute position of the top of the modal in the page
   const modalTop = modal.getBoundingClientRect().top + window.scrollY;
 
@@ -148,6 +165,14 @@ function togglePaymentMethod() {
   paymentRadioButtons.forEach(radioButton => {
     radioButton.addEventListener("change", () => {
       displayPaymentInfo(radioButton.value);
+      if (radioButton.value === "e-Money") {
+        eMoneyValidations()
+      } else if (radioButton.value === "Cash on Delivery") {
+        console.log(validation);
+        validation.removeField("input[id='e-money-num']");
+        validation.removeField("input[id='e-money-pin']");
+        validation.revalidate();
+      }
     });
   });
 } 
@@ -165,10 +190,6 @@ function displayPaymentInfo(paymentType) {
       eMoneyInfoContainer.classList.add("hidden");
       cashDeliveryInfoContainer.classList.remove("hidden");
   }
-}
-
-function textErrors(textElement) {
-  textElement.classList.add("error-border");
 }
 
 function renderOrderSummary(cart) {

@@ -211,7 +211,7 @@
         grid-template-rows: auto;
         grid-template-areas:
           'address address'
-          'zip city'
+          'city zip'
           'country .';
         column-gap: 1rem;
       }

@@ -2,6 +2,7 @@
 .header-category-options {
   display: grid;
   gap: 1rem;
+  animation: easeIn 1s forwards;
   
   @include mq(768px) {
     grid-template-columns: auto auto auto;

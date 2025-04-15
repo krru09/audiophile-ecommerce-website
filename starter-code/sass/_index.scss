@@ -388,13 +388,11 @@
     'audio-img'
     'audio-desc';
 
-  @include mq(1440px) {
+  @include mq(1024px) {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'audio-desc audio-img';
     gap: 7.813rem;
-
-    width: max(69.375rem, 60%);
     place-self: center;
   }
 }
@@ -423,7 +421,7 @@
     text-align: center;
   }
 
-  @include mq(1440px) {
+  @include mq(1024px) {
     min-width: 27.813rem;
     width: 100%;
     text-align: left;
