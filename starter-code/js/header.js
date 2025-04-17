@@ -16,10 +16,14 @@ export function headerEventListeners() {
 }
 
 export function toggleModal(modalContainer) {
+  const backdrop = document.getElementById("backdrop");
+
   if (modalContainer.classList.contains("hidden")) {
     modalContainer.classList.remove("hidden");
+    backdrop.classList.remove("hidden");
   } else {
     modalContainer.classList.add("hidden");
+    backdrop.classList.add("hidden");
   }
 }
 
