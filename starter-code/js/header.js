@@ -1,29 +1,5 @@
-export const cart = [
-  {
-    id: 4,
-    name: "XX99 Mark Two Headphones",
-    slug: "XX99-mark-two-headphones",
-    cartName: "XX99 MK II",
-    price: 2999,
-    quantity: 1
-  },
-  {
-    id: 2,
-    name: "XX59 Heaphones",
-    slug: "xx59-headphones",
-    cartName: "XX59",
-    price: 899,
-    quantity: 2
-  },
-  {
-    id: 1,
-    name: "YX1 Wireless Earphones",
-    slug: "yx1-earphones",
-    cartName: "YX1",
-    price: 599,
-    quantity: 1
-  }
-];
+import {cart} from "./cart/cart.js";
+import {productData} from "./main.js"
 
 export function headerEventListeners() {
   const hamburgerButton = document.getElementById("hamburger-button");
@@ -49,6 +25,11 @@ export function toggleModal(modalContainer) {
 
 export function renderCartModal() {
   const cartButtonContainer = document.getElementById("cart-button-container");
+  const cartProductsSection = document.getElementById("cart-products");
+
+  // resets the cart modal products section so it always starts off as empty when called
+  cartProductsSection.innerHTML = "";
+
   let cartTotalQuantity = 0;
   cart.forEach(cartItem => {
     cartTotalQuantity += cartItem.quantity;
@@ -58,33 +39,46 @@ export function renderCartModal() {
   const cartQuantity = document.getElementById("cart-quantity");
   cartQuantity.textContent = cartTotalQuantity;
 
-  const cartProductsSection = document.getElementById("cart-products");
-  if (cart.length > 1) {
+  // working with cart products section
+  if (cart.length >= 1) {
     cart.forEach(cartItem => {
+      const matchingProduct = productData.find(product => product.id === cartItem.id);
+      const matchingProductId = matchingProduct.id;
+
       const cartProduct = document.createElement("article");
+      cartProduct.dataset.id = `${matchingProduct.id}`;
       cartProduct.className = "cart-product";
       cartProduct.innerHTML = `
-          <div class="product-details-container" data-id="${cartItem.id}" data-slug="${cartItem.slug}">
-            <img src="assets/cart/image-${cartItem.slug}.jpg" class="product-image">
+          <div class="product-details-container" data-slug="${matchingProduct.slug}">
+            <button class="remove-product-icon" data-delete-id="${matchingProduct.id}" title="Remove ${matchingProduct.name} from cart" aria-label="Remove ${matchingProduct.name} from cart">
+              <img src="assets/cart/delete-item-icon.svg">
+            </button>
+            <img src="assets/cart/image-${matchingProduct.slug}.jpg" class="product-image">
             <div class="cart-product-details">
-              <h2>${cartItem.cartName}</h2>
-              <h3>$ ${cartItem.price}</h3>
+              <h2>${matchingProduct.cartName}</h2>
+              <h3>$ ${matchingProduct.price}</h3>
             </div>
           </div>
-          <div class="cart-quantity-button" data-id="${cartItem.id}">
-            <button class="decrement-button" id="decrement-${cartItem.slug}" title="decrease ${cartItem.name} quantity">
+          <div class="cart-quantity-button">
+            <button class="decrement-button" id="decrement-${matchingProduct.slug}" title="decrease ${matchingProduct.name} quantity">
               -
             </button>
-            <p>${cartItem.quantity}</p>
-            <button class="increment-button" id="increment-${cartItem.slug}" title="decrease ${cartItem.name} quantity">
+            <p class="cart-item-quantity">${cartItem.quantity}</p>
+            <button class="increment-button" id="increment-${matchingProduct.slug}" title="decrease ${matchingProduct.name} quantity">
               +
             </button>
           </div>
       `;
       cartProductsSection.appendChild(cartProduct);
+      console.log("Adding cartProductEventListeners for ", matchingProduct.id);
+      cartProductEventListeners(cartProduct);
     });
   } else {
     cartProductsSection.innerHTML = "";
+    cartProductsSection.textContent = "Your cart is empty!";
+    cartProductsSection.style.fontSize = "1.5rem";
+    cartProductsSection.style.fontWeight = "Bold";
+    cartProductsSection.style.textAlign = "center";
   }
 
   // cart checkout section
@@ -121,7 +115,6 @@ export function cartModalEventListeners() {
 }
 
 function closeCart() {
-  console.log("inside closeCart function");
   const cartModal = document.getElementById("cart");
   toggleModal(cartModal);
 }
@@ -130,4 +123,60 @@ function removeAllCart() {
   cart.splice(0, cart.length);
   renderCartModal();
   console.log(cart);
+}
+
+function cartProductEventListeners(cartProduct) {
+  // id to find for cart
+  const productId = Number(cartProduct.dataset.id);
+
+  // remove product from cart
+  const removeProductButton = cartProduct.querySelector(".remove-product-icon");
+
+  removeProductButton.addEventListener("click", () => {
+    console.log("Deleting product from cart", productId);
+    removeProduct(productId);
+    renderCartModal();
+  });
+
+  // update quantity button
+  const quantityButton = cartProduct.querySelector(".cart-quantity-button");
+  const quantityDecrementButton = quantityButton.querySelector(".decrement-button");
+  const quantityIncrementButton = quantityButton.querySelector(".increment-button");
+
+  quantityDecrementButton.addEventListener("click", () => {
+    decrementCartQuantity(productId, quantityButton);
+  })
+
+  quantityIncrementButton.addEventListener("click", () => {
+    incrementCartQuantity(productId, quantityButton);
+  });
+}
+
+function decrementCartQuantity(productId, quantityButton) {
+  const quantityDisplay = quantityButton.querySelector(".cart-item-quantity");
+  const matchingProduct = cart.find(product => product.id === productId);
+  if (matchingProduct.quantity > 1) {
+    matchingProduct.quantity -= 1;
+  } else {
+    matchingProduct.quantity = 1;
+  }
+
+  quantityDisplay.textContent = matchingProduct.quantity;
+  console.log(cart);
+}
+
+function incrementCartQuantity(productId, quantityButton) {
+  const quantityDisplay = quantityButton.querySelector(".cart-item-quantity");
+  const matchingProduct = cart.find(product => product.id === productId);
+  matchingProduct.quantity += 1;
+
+  quantityDisplay.textContent = matchingProduct.quantity;
+  console.log(cart);
+}
+
+function removeProduct(id) {
+  const matchingProduct = cart.find(product => product.id === id);
+  const productIndex = cart.indexOf(matchingProduct);
+
+  cart.splice(productIndex, 1);
 }

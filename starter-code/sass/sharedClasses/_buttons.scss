@@ -77,10 +77,6 @@
   letter-spacing: 0;
 }
 
-.header-button:hover, .header-button:active {
-  filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1385%) hue-rotate(327deg) brightness(90%) contrast(86%);
-}
-
 .header-button {
   width: fit-content;
   background: none;
@@ -109,6 +105,8 @@
   color: black;
   font-weight: bold;
   font-size: 0.875rem;
+  width: 90%;
+  text-align: center;
 }
 
 .quantity-button > button {

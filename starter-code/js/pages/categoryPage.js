@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   // .filter() finds all items that match a certain condition
   const categoryProducts = productData.filter(product => product.category === pageCategory);
 
+  renderCategoryPage(categoryProducts);
+});
+
+function renderCategoryPage(categoryProducts) {
   // this sorts the array so that the newest product are first
   const productsNewSorted = categoryProducts.sort((product1, product2) => {
     const product1New = product1.new;
@@ -76,4 +80,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     containerCounter += 1;
   });
-});
+}

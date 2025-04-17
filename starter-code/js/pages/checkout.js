@@ -1,5 +1,4 @@
 import {cart, toggleModal} from "../header.js";
-import {productData} from "../main.js";
 import {getJsonPromise} from "../loadJSON.js";
 
 const checkoutForm = document.getElementById("checkout-form");
