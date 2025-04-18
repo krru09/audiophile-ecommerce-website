@@ -1,6 +1,5 @@
 // header
 #header {
-  z-index: 1001;
   position: sticky;
   top: 0;
 
@@ -34,7 +33,7 @@
   }
 }
 
-#header img:hover {
+#header button img:hover, #header a img:hover {
   filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1385%) hue-rotate(327deg) brightness(90%) contrast(86%);
 }
 
@@ -82,7 +81,7 @@
   border-bottom-left-radius: .5rem;
   border-bottom-right-radius: .5rem;
   padding: 2rem 1.5rem;
-  z-index: 1003;
+  z-index: 1001;
 
   position: absolute;
   top: 100%;

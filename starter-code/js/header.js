@@ -17,13 +17,22 @@ export function headerEventListeners() {
 
 export function toggleModal(modalContainer) {
   const backdrop = document.getElementById("backdrop");
+  const cartModal = document.getElementById("cart");
+  const hamburgerModal = document.getElementById("hamburger-menu");
+  const allModals = document.querySelectorAll("dialog");
 
   if (modalContainer.classList.contains("hidden")) {
     modalContainer.classList.remove("hidden");
     backdrop.classList.remove("hidden");
+
+    cartModal.classList.remove("highest-index");
+    hamburgerModal.classList.remove("highest-index");
+    modalContainer.classList.add("highest-index");
   } else {
     modalContainer.classList.add("hidden");
-    backdrop.classList.add("hidden");
+    if (hamburgerModal.classList.contains("hidden") && cartModal.classList.contains("hidden")) {
+      backdrop.classList.add("hidden");
+    }
   }
 }
 
