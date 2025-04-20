@@ -1,1 +1,2 @@
-export const cart = [{id: 3, quantity: 2}];
+import {Cart} from "./cartClass.js";
+export const cart = new Cart();

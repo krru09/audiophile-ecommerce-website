@@ -1,6 +1,8 @@
 import {cart} from "./cart/cart.js";
 import {productData} from "./main.js"
 
+console.log(cart.cart);
+
 export function headerEventListeners() {
   const hamburgerButton = document.getElementById("hamburger-button");
   const hamburgerMenu = document.getElementById("hamburger-menu");
@@ -43,10 +45,8 @@ export function renderCartModal() {
   // resets the cart modal products section so it always starts off as empty when called
   cartProductsSection.innerHTML = "";
 
-  let cartTotalQuantity = 0;
-  cart.forEach(cartItem => {
-    cartTotalQuantity += cartItem.quantity;
-  });
+  const cartTotalQuantity = cart.totalItems;
+  console.log(cartTotalQuantity);
 
   const cartDialog = document.getElementById("cart");
   const cartQuantity = document.getElementById("cart-quantity");
@@ -54,7 +54,7 @@ export function renderCartModal() {
 
   // working with cart products section
   if (cart.length >= 1) {
-    cart.forEach(cartItem => {
+    cart.cart.forEach(cartItem => {
       const matchingProduct = productData.find(product => product.id === cartItem.id);
       const matchingProductId = matchingProduct.id;
 
@@ -96,19 +96,10 @@ export function renderCartModal() {
 
   // cart checkout section
   const cartCheckout = document.getElementById("cart-checkout");
-
-  // cart total
-  let cartTotalPrice = 0;
-  cart.forEach(cartItem => {
-    if (cartItem.quantity > 1) {
-      cartTotalPrice += (cartItem.price * cartItem.quantity);
-    } else {
-      cartTotalPrice += cartItem.price;
-    }
-  });
   
   const cartPriceElement = document.getElementById("cart-total-price");
-  cartPriceElement.textContent = cartTotalPrice;
+  console.log("Result from cart.totalPrice:", cart.totalPrice);
+  cartPriceElement.textContent = cart.totalPrice;
 }
 
 export function cartModalEventListeners() {
@@ -146,22 +137,33 @@ function cartProductEventListeners(cartProduct) {
   const removeProductButton = cartProduct.querySelector(".remove-product-icon");
 
   removeProductButton.addEventListener("click", () => {
-    console.log("Deleting product from cart", productId);
-    removeProduct(productId);
+    console.log("Deleting product id from cart", productId);
+    cart.removeProduct(productId);
     renderCartModal();
   });
 
   // update quantity button
   const quantityButton = cartProduct.querySelector(".cart-quantity-button");
+  const quantityDisplay = quantityButton.querySelector(".cart-item-quantity");
   const quantityDecrementButton = quantityButton.querySelector(".decrement-button");
   const quantityIncrementButton = quantityButton.querySelector(".increment-button");
 
   quantityDecrementButton.addEventListener("click", () => {
-    decrementCartQuantity(productId, quantityButton);
+    cart.decrementQuantity(productId);
+    const matchingProduct = cart.findById(productId);
+    quantityDisplay.textContent = matchingProduct.quantity;
+
+    const cartPriceElement = document.getElementById("cart-total-price");
+    cartPriceElement.textContent = cart.totalPrice;
   })
 
   quantityIncrementButton.addEventListener("click", () => {
-    incrementCartQuantity(productId, quantityButton);
+    cart.incrementQuantity(productId);
+    const matchingProduct = cart.findById(productId);
+    quantityDisplay.textContent = matchingProduct.quantity;
+
+    const cartPriceElement = document.getElementById("cart-total-price");
+    cartPriceElement.textContent = cart.totalPrice;
   });
 }
 
@@ -185,11 +187,4 @@ function incrementCartQuantity(productId, quantityButton) {
 
   quantityDisplay.textContent = matchingProduct.quantity;
   console.log(cart);
-}
-
-function removeProduct(id) {
-  const matchingProduct = cart.find(product => product.id === id);
-  const productIndex = cart.indexOf(matchingProduct);
-
-  cart.splice(productIndex, 1);
 }

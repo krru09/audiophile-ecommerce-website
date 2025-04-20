@@ -2,6 +2,7 @@ import {productData} from "../main.js";
 import {getJsonPromise} from "../loadJSON.js";
 import {cart} from "../cart/cart.js";
 import {renderCartModal} from "../header.js";
+import {CartItem} from "../cart/cartItemClass.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await getJsonPromise();
@@ -184,17 +185,18 @@ function addCartFunction(addCartButton, product) {
     const currentQuantityEl = document.querySelector("#product-button-quantity");
     const currentQuantity = Number(currentQuantityEl.textContent);
 
-    const matchingItem = cart.find(cartItem => cartItem.id === product.id);
+    const matchingItem = cart.findById(product.id);
     if (matchingItem) {
       console.log("productFound");
       matchingItem.quantity += currentQuantity;
       console.log(cart);
     } else {
       console.log("adding new item to cart");
-      const newCartItem = {};
-      newCartItem["id"] = product.id;
-      newCartItem["quantity"] = currentQuantity;
-      cart.push(newCartItem);
+      const newCartItem = new CartItem({
+        id: product.id,
+        quantity: currentQuantity
+      });
+      cart.addCartItem(newCartItem);
       console.log(cart);
     }
 
