@@ -3,11 +3,18 @@ import {productDataPromise, productData} from "../main.js";
 import {cart} from "../cart/cart.js";
 import {renderCartModal} from "../header.js";
 import {CartItem} from "../cart/cartItemClass.js";
-import {findProduct} from "../utils/utils.js";
+import {findProduct, setCurrency} from "../utils/utils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await productDataPromise;
-  const product = findProduct(productData.slug);
+
+  const pagePath = window.location.pathname;
+
+  // split does ["/", "fileName"] and then pop does "fileName"
+  const fileName = pagePath.split("/").pop();
+  const slug = fileName.replace("product-", "").replace(".html", "");
+
+  const product = findProduct(slug);
 
   renderProductPage(product);
   buttonEventHandlers(product);
@@ -35,7 +42,7 @@ function renderProductPage(product) {
   <p class="product-details-descriptions">
     ${product.description}
   </p>
-  <h2 class="product-details-price">$ ${product.price}</h2>
+  <h2 class="product-details-price">$ ${setCurrency(product.price)}</h2>
   `;
 
   // product-features-desc

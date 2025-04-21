@@ -1,5 +1,6 @@
 import {cart} from "./cart/cart.js";
 import {productData} from "./main.js"
+import {setCurrency} from "./utils/utils.js";
 
 export function headerEventListeners() {
   const hamburgerButton = document.getElementById("hamburger-button");
@@ -66,7 +67,7 @@ export function renderCartModal() {
             <img src="assets/cart/image-${matchingProduct.slug}.jpg" class="product-image">
             <div class="cart-product-details">
               <h2>${matchingProduct.cartName}</h2>
-              <h3>$ ${matchingProduct.price}</h3>
+              <h3>$ ${setCurrency(matchingProduct.price)}</h3>
             </div>
           </div>
           <div class="cart-quantity-button">
@@ -93,7 +94,7 @@ export function renderCartModal() {
   
   const cartPriceElement = document.getElementById("cart-total-price");
   console.log("Result from cart.totalPrice:", cart.totalPrice);
-  cartPriceElement.textContent = cart.totalPrice;
+  cartPriceElement.textContent = setCurrency(cart.totalPrice);
 }
 
 export function cartModalEventListeners() {
@@ -154,5 +155,5 @@ function displayProductQuantity(productId, quantityDisplay) {
 
 function updateCartPrice() {
   const cartPriceElement = document.getElementById("cart-total-price");
-  cartPriceElement.textContent = cart.totalPrice;
+  cartPriceElement.textContent = setCurrency(cart.totalPrice);
 }

@@ -2,17 +2,16 @@ import {productData} from "../main.js";
 
 // return currency in string format
 export function setCurrency(itemPrice) {
-  const USDollar = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD"
-  });
-
-  return USDollar.format(itemPrice);
+  return itemPrice.toLocaleString();
 };
 
 // find data from productData
 export function findProduct(info) {
-  return productData.find(product => product.info === info);
+  if (typeof info === "string") {
+    return productData.find(product => product.slug === info);
+  } else {
+    return productData.find(product => product.id === info);
+  }
 }
 
 // filter products to only return products of the same category

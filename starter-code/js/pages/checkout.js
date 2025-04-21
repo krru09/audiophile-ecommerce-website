@@ -6,16 +6,14 @@ import {findProduct} from "../utils/utils.js";
 const checkoutForm = document.getElementById("checkout-form");
 const formElements = document.querySelectorAll("input, textarea");
 const submitButton = document.getElementById("pay-button");
-console.log(submitButton);
 const checkoutCompleteModal = document.getElementById("checkout-complete-container");
 
 const validation = new JustValidate("#checkout-form", {
   ignoreHiddenFields: true,
 });
 
-
 document.addEventListener("DOMContentLoaded", async () => {
-  await productDataPromise();
+  await productDataPromise;
 
   renderOrderSummary(cart);
   togglePaymentMethod();
@@ -196,6 +194,7 @@ function displayPaymentInfo(paymentType) {
 function renderOrderSummary(cart) {
   const cartProductsContainer = document.getElementById("checkout-products");
   cart.cart.forEach(cartItem => {
+    console.log(cartItem.id);
     const matchingProduct = findProduct(cartItem.id)
     console.log(matchingProduct);
 
