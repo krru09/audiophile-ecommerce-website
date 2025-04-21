@@ -2,6 +2,8 @@ import {cart} from "./cart/cart.js";
 import {productData} from "./main.js"
 import {setCurrency} from "./utils/utils.js";
 
+const removeAllButton = document.getElementById("remove-all-button");
+
 export function headerEventListeners() {
   const hamburgerButton = document.getElementById("hamburger-button");
   const hamburgerMenu = document.getElementById("hamburger-menu");
@@ -81,6 +83,7 @@ export function renderCartModal() {
       `;
       cartProductsSection.appendChild(cartProduct);
       cartCheckoutEl.classList.remove("hidden");
+      removeAllButton.classList.remove("hidden");
       cartProductEventListeners(cartProduct);
     });
   } else {
@@ -90,6 +93,7 @@ export function renderCartModal() {
     cartProductsSection.style.fontWeight = "Bold";
     cartProductsSection.style.textAlign = "center";
     cartCheckoutEl.classList.add("hidden");
+    removeAllButton.classList.add("hidden");
   }
   
   const cartPriceElement = document.getElementById("cart-total-price");
@@ -104,7 +108,6 @@ export function cartModalEventListeners() {
   });
 
   // remove all from cart button
-  const removeAllButton = document.getElementById("remove-all-button");
   removeAllButton.addEventListener("click", () => {
     cart.removeAll();
     renderCartModal();
