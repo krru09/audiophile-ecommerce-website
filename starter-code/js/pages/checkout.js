@@ -1,7 +1,7 @@
 import {toggleModal} from "../header.js";
 import {productDataPromise} from "../main.js";
 import {cart} from "../cart/cart.js";
-import {findProduct} from "../utils/utils.js";
+import {findProduct, setCurrency, pageSaves, goBackEventListener} from "../utils/utils.js";
 
 const checkoutForm = document.getElementById("checkout-form");
 const formElements = document.querySelectorAll("input, textarea");
@@ -104,6 +104,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   submitButton.addEventListener("click", () => {
     checkoutForm.requestSubmit();
   });
+
+  pageSaves();
+  goBackEventListener();
 });
 
 function eMoneyValidations() {
@@ -208,7 +211,7 @@ function renderOrderSummary(cart) {
     const productTitle = document.createElement("h3");
     productTitle.textContent = `${matchingProduct.cartName}`;
     const productPrice = document.createElement("h4");
-    productPrice.textContent = `$ ${matchingProduct.price}`;
+    productPrice.textContent = `$ ${setCurrency(matchingProduct.price)}`;
     productDetailsContainer.appendChild(productTitle);
     productDetailsContainer.appendChild(productPrice);
     productContainer.appendChild(productDetailsContainer);
@@ -223,25 +226,25 @@ function renderOrderSummary(cart) {
   // cart calculations section
   const cartSubtotal = document.getElementById("cart-subtotal");
   const subtotalAmountEl = cartSubtotal.querySelector("h4");
-  subtotalAmountEl.textContent = `$ ${cart.totalPrice}`;
+  subtotalAmountEl.textContent = `$ ${setCurrency(cart.totalPrice)}`;
 
   // cart calculations -- shipping
   // shipping is always $50
   const shippingPrice = 50;
   const shippingContainer = document.getElementById("cart-shipping");
   const shippingEl = shippingContainer.querySelector("h4");
-  shippingEl.textContent = `$ ${shippingPrice}`;
+  shippingEl.textContent = `$ ${setCurrency(shippingPrice)}`;
 
   // cart calculations -- vat
   // vat is always 20% of product total, excluding shipping
   let vat = Math.round(cart.totalPrice * 0.20);
   const vatContainer = document.getElementById("cart-vat");
   const vatEl = vatContainer.querySelector("h4");
-  vatEl.textContent = `$ ${vat}`;
+  vatEl.textContent = `$ ${setCurrency(vat)}`;
   // console.log(vat);
 
   // grand total
   const grandTotalContainer = document.getElementById("cart-grand-total");
   const grandTotalEl = grandTotalContainer.querySelector("h4");
-  grandTotalEl.textContent = `$ ${cart.totalPrice + shippingPrice}`;
+  grandTotalEl.textContent = `$ ${setCurrency(cart.totalPrice + shippingPrice)}`;
 }

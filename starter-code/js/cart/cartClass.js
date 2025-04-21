@@ -5,9 +5,24 @@ export class Cart {
   #cart;
 
   constructor() {
-    this.#cart = [
-      new CartItem({id: 2, quantity: 2})
-    ];
+    const cartLocalStorage = this.localStorageCart;
+
+    if (Array.isArray(cartLocalStorage)) {
+      // this makes sure that we convert all of the plain object instances in the localstorage array are of the object type CartItem after we pull it from localStorage
+      this.#cart = cartLocalStorage.map(
+        cartItem => new CartItem({
+          id: cartItem.id,
+          quantity: cartItem.quantity
+        })
+      );
+    } else {
+      this.#cart = [];
+    }
+
+    // start with an empty cart in local storage when the page first loads
+    if (!cartLocalStorage) {
+      this.localStorage = this.#cart;
+    }
   }
 
   get totalItems() {
@@ -44,18 +59,13 @@ export class Cart {
     return totalPrice;
   }
 
-  addCartItem(cartItem) {
+  addNewItem(cartItem) {
     if (cartItem instanceof CartItem) {
-      const matchingItem = this.#cart.find(item => item.id === cartItem.id);
-      if (matchingItem) {
-        console.log("productFound");
-        matchingItem.quantity += cartItem.quantity;
-        console.log(cart);
-      } else {
-        console.log("adding new item to cart");
-        this.#cart.push(cartItem);
-      }
+      this.#cart.push(cartItem);
     }
+
+    console.log(this.#cart);
+    this.localStorageCart = this.#cart;
   }
 
   removeAll() {
@@ -76,7 +86,8 @@ export class Cart {
   }
 
   incrementQuantity(id) {
-    const matchingProduct = this.#cart.find(cart => cart.id === id);
+    const matchingProduct = this.#cart.find(cartItem => cartItem.id === id);
+    console.log(matchingProduct);
     if (matchingProduct) {
       matchingProduct.incrementQuantity();
     }
@@ -87,5 +98,14 @@ export class Cart {
     if (matchingProduct) {
       matchingProduct.decrementQuantity();
     }
+  }
+
+  get localStorageCart() {
+    return JSON.parse(localStorage.getItem("cart"));
+  }
+
+  set localStorageCart(cart) {
+    console.log("Writing to localStorage", cart);
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
 }

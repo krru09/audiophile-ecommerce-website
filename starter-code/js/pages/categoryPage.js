@@ -1,8 +1,9 @@
 import {productDataPromise} from "../main.js";
-import {filterProducts} from "../utils/utils.js";
+import {filterProducts, pageSaves} from "../utils/utils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await productDataPromise;
+
   const pageCategory = document.querySelector("#category-main").dataset.category;
   
   const categoryProducts = filterProducts(pageCategory);

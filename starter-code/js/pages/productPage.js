@@ -1,9 +1,8 @@
-import {getJsonPromise} from "../loadJSON.js";
-import {productDataPromise, productData} from "../main.js";
+import {productDataPromise} from "../main.js";
 import {cart} from "../cart/cart.js";
 import {renderCartModal} from "../header.js";
 import {CartItem} from "../cart/cartItemClass.js";
-import {findProduct, setCurrency} from "../utils/utils.js";
+import {findProduct, setCurrency, pageSaves, goBackEventListener} from "../utils/utils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await productDataPromise;
@@ -18,6 +17,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   renderProductPage(product);
   buttonEventHandlers(product);
+
+  // used for Go Back links
+  pageSaves();
+  goBackEventListener();
 });
 
 function renderProductPage(product) {
@@ -182,15 +185,16 @@ function addCartFunction(addCartButton, product) {
 
     const matchingItem = cart.findById(product.id);
     if (matchingItem) {
+      console.log("matching item found from productPage.js");
       matchingItem.quantity += currentQuantity;
+      cart.localStorageCart = cart.cart;
     } else {
       const newCartItem = new CartItem({
         id: product.id,
         quantity: currentQuantity
       });
-      cart.addCartItem(newCartItem);
+      cart.addNewItem(newCartItem);
     }
-
     renderCartModal();
   });
 }

@@ -44,8 +44,6 @@ export function renderCartModal() {
   cartProductsSection.innerHTML = "";
 
   const cartTotalQuantity = cart.totalItems;
-  console.log(cartTotalQuantity);
-
   const cartDialog = document.getElementById("cart");
   const cartQuantity = document.getElementById("cart-quantity");
   cartQuantity.textContent = cartTotalQuantity;
@@ -81,7 +79,6 @@ export function renderCartModal() {
           </div>
       `;
       cartProductsSection.appendChild(cartProduct);
-      console.log("Adding cartProductEventListeners for ", matchingProduct.id);
       cartProductEventListeners(cartProduct);
     });
   } else {
@@ -93,7 +90,6 @@ export function renderCartModal() {
   }
   
   const cartPriceElement = document.getElementById("cart-total-price");
-  console.log("Result from cart.totalPrice:", cart.totalPrice);
   cartPriceElement.textContent = setCurrency(cart.totalPrice);
 }
 

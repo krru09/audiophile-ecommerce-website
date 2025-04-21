@@ -1,34 +1,41 @@
-export class CartItem {
-    #id;
-    #quantity;
+  export class CartItem {
+  #id;
+  #quantity;
 
-    constructor({id, quantity = 1}) {
-        this.#id = id;
-        this.#quantity = quantity;
-    }
+  constructor({id, quantity = 1}) {
+    this.#id = id;
+    this.#quantity = quantity;
+  }
 
-    get id() {
-        return this.#id;
+  toJSON() {
+    return {
+      id: this.#id,
+      quantity: this.#quantity
     }
+  }
 
-    get quantity() {
-        return this.#quantity;
-    }
+  get id() {
+    return this.#id;
+  }
 
-    // setters
-    set id(id) {
-        this.#id = id;
-    }
+  get quantity() {
+    return this.#quantity;
+  }
 
-    set quantity(quantity) {
-        this.#quantity = quantity;
-    }
+  // setters
+  set id(id) {
+    this.#id = id;
+  }
 
-    incrementQuantity() {
-        this.#quantity += 1;
-    }
+  set quantity(quantity) {
+    this.#quantity = quantity;
+  }
 
-    decrementQuantity() {
-        this.#quantity > 1 ? this.#quantity -= 1 : this.#quantity = 1;
-    }
+  incrementQuantity() {
+    this.#quantity += 1;
+  }
+
+  decrementQuantity() {
+    this.#quantity > 1 ? this.#quantity -= 1 : this.#quantity = 1;
+  }
 }
