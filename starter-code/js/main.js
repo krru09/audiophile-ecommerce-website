@@ -2,16 +2,18 @@ import {renderCartModal, cartModalEventListeners, headerEventListeners} from "./
 import {getJsonPromise} from "./loadJSON.js";
 
 export const productData = [];
+export const productDataPromise = (async () => {
+  // makes sure we only call fetch once by using getJsonPromise();
+  const data = await getJsonPromise();
+  data.forEach(product => {
+    productData.push(product);
+  });
+
+  return productData;
+})();
 
 document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const data = await getJsonPromise();
-    data.forEach(product => {
-      productData.push(product);
-    });
-  } catch (error) {
-    console.error("There was an error: ", error);
-  }
+  await productDataPromise;
 
   // header event listeners
   headerEventListeners();

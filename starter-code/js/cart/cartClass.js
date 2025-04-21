@@ -14,7 +14,7 @@ export class Cart {
     let itemsQuantity = 0;
     if (this.#cart.length >= 1) {
       this.#cart.forEach(cartItem => {
-        itemsQuantity = cartItem.quantity;
+        itemsQuantity += cartItem.quantity;
       });
     }
 

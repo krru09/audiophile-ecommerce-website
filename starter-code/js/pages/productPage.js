@@ -1,20 +1,13 @@
-import {productData} from "../main.js";
 import {getJsonPromise} from "../loadJSON.js";
+import {productDataPromise, productData} from "../main.js";
 import {cart} from "../cart/cart.js";
 import {renderCartModal} from "../header.js";
 import {CartItem} from "../cart/cartItemClass.js";
+import {findProduct} from "../utils/utils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await getJsonPromise();
-
-  const pagePath = window.location.pathname;
-
-  // split does ["/", "fileName"] and then pop does "fileName"
-  const fileName = pagePath.split("/").pop();
-  const slug = fileName.replace("product-", "").replace(".html", "");
-
-  const product = productData.find(product => product.slug === slug);
-  console.log(product);
+  await productDataPromise;
+  const product = findProduct(productData.slug);
 
   renderProductPage(product);
   buttonEventHandlers(product);
@@ -70,14 +63,11 @@ function renderProductPage(product) {
   // gallery container
   const productGalleryContainer = document.getElementById("gallery-container");
   const galleryImages = product.gallery;
-  console.log(galleryImages);
   let galleryId = 1;
   for(let key in galleryImages) {
-    // console.log(key, galleryImages[key]);
     const imageContainer = document.createElement("picture");
     imageContainer.id = `gallery${galleryId}`;
     for (let currentKey in galleryImages[key]) {
-      // console.log(currentKey, galleryImages[key][currentKey]);
       if (currentKey === "mobile") {
         const image = document.createElement("img");
         image.src = galleryImages[key][currentKey];
@@ -102,7 +92,6 @@ function renderProductPage(product) {
   // products may like container
   const productsMayLikeList = document.getElementById("products-may-like-list");
   const otherProducts = product.others;
-  console.log(otherProducts);
 
   let productId = 1;
   otherProducts.forEach(product => {
@@ -149,7 +138,6 @@ function renderProductPage(product) {
 function buttonEventHandlers(product) {
   // quantity button 
   const quantityButton = document.getElementById("quantity-button");
-  console.log(quantityButton);
   changeQuantityFunction(quantityButton);
 
   // add to cart button
@@ -187,17 +175,13 @@ function addCartFunction(addCartButton, product) {
 
     const matchingItem = cart.findById(product.id);
     if (matchingItem) {
-      console.log("productFound");
       matchingItem.quantity += currentQuantity;
-      console.log(cart);
     } else {
-      console.log("adding new item to cart");
       const newCartItem = new CartItem({
         id: product.id,
         quantity: currentQuantity
       });
       cart.addCartItem(newCartItem);
-      console.log(cart);
     }
 
     renderCartModal();

@@ -1,8 +1,6 @@
 import {cart} from "./cart/cart.js";
 import {productData} from "./main.js"
 
-console.log(cart.cart);
-
 export function headerEventListeners() {
   const hamburgerButton = document.getElementById("hamburger-button");
   const hamburgerMenu = document.getElementById("hamburger-menu");
@@ -39,7 +37,6 @@ export function toggleModal(modalContainer) {
 }
 
 export function renderCartModal() {
-  const cartButtonContainer = document.getElementById("cart-button-container");
   const cartProductsSection = document.getElementById("cart-products");
 
   // resets the cart modal products section so it always starts off as empty when called
@@ -93,9 +90,6 @@ export function renderCartModal() {
     cartProductsSection.style.fontWeight = "Bold";
     cartProductsSection.style.textAlign = "center";
   }
-
-  // cart checkout section
-  const cartCheckout = document.getElementById("cart-checkout");
   
   const cartPriceElement = document.getElementById("cart-total-price");
   console.log("Result from cart.totalPrice:", cart.totalPrice);
@@ -103,8 +97,6 @@ export function renderCartModal() {
 }
 
 export function cartModalEventListeners() {
-  console.log("inside cartModalEventListener");
-
   // close cart button
   const closeCartButton = document.getElementById("close-cart-button");
   closeCartButton.addEventListener("click", () => {
@@ -114,19 +106,14 @@ export function cartModalEventListeners() {
   // remove all from cart button
   const removeAllButton = document.getElementById("remove-all-button");
   removeAllButton.addEventListener("click", () => {
-    removeAllCart();
+    cart.removeAll();
+    renderCartModal();
   });
 }
 
 function closeCart() {
   const cartModal = document.getElementById("cart");
   toggleModal(cartModal);
-}
-
-function removeAllCart() {
-  cart.splice(0, cart.length);
-  renderCartModal();
-  console.log(cart);
 }
 
 function cartProductEventListeners(cartProduct) {
@@ -137,7 +124,6 @@ function cartProductEventListeners(cartProduct) {
   const removeProductButton = cartProduct.querySelector(".remove-product-icon");
 
   removeProductButton.addEventListener("click", () => {
-    console.log("Deleting product id from cart", productId);
     cart.removeProduct(productId);
     renderCartModal();
   });
@@ -150,41 +136,23 @@ function cartProductEventListeners(cartProduct) {
 
   quantityDecrementButton.addEventListener("click", () => {
     cart.decrementQuantity(productId);
-    const matchingProduct = cart.findById(productId);
-    quantityDisplay.textContent = matchingProduct.quantity;
-
-    const cartPriceElement = document.getElementById("cart-total-price");
-    cartPriceElement.textContent = cart.totalPrice;
+    displayProductQuantity(productId, quantityDisplay);
+    updateCartPrice();
   })
 
   quantityIncrementButton.addEventListener("click", () => {
     cart.incrementQuantity(productId);
-    const matchingProduct = cart.findById(productId);
-    quantityDisplay.textContent = matchingProduct.quantity;
-
-    const cartPriceElement = document.getElementById("cart-total-price");
-    cartPriceElement.textContent = cart.totalPrice;
+    displayProductQuantity(productId, quantityDisplay);
+    updateCartPrice();
   });
 }
 
-function decrementCartQuantity(productId, quantityButton) {
-  const quantityDisplay = quantityButton.querySelector(".cart-item-quantity");
-  const matchingProduct = cart.find(product => product.id === productId);
-  if (matchingProduct.quantity > 1) {
-    matchingProduct.quantity -= 1;
-  } else {
-    matchingProduct.quantity = 1;
-  }
-
+function displayProductQuantity(productId, quantityDisplay) {
+  const matchingProduct = cart.findById(productId);
   quantityDisplay.textContent = matchingProduct.quantity;
-  console.log(cart);
 }
 
-function incrementCartQuantity(productId, quantityButton) {
-  const quantityDisplay = quantityButton.querySelector(".cart-item-quantity");
-  const matchingProduct = cart.find(product => product.id === productId);
-  matchingProduct.quantity += 1;
-
-  quantityDisplay.textContent = matchingProduct.quantity;
-  console.log(cart);
+function updateCartPrice() {
+  const cartPriceElement = document.getElementById("cart-total-price");
+  cartPriceElement.textContent = cart.totalPrice;
 }

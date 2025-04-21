@@ -1,13 +1,11 @@
-import {productData} from "../main.js";
-import {getJsonPromise} from "../loadJSON.js";
+import {productDataPromise} from "../main.js";
+import {filterProducts} from "../utils/utils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await getJsonPromise();
+  await productDataPromise;
   const pageCategory = document.querySelector("#category-main").dataset.category;
-  console.log(pageCategory);
   
-  // .filter() finds all items that match a certain condition
-  const categoryProducts = productData.filter(product => product.category === pageCategory);
+  const categoryProducts = filterProducts(pageCategory);
 
   renderCategoryPage(categoryProducts);
 });
@@ -26,7 +24,6 @@ function renderCategoryPage(categoryProducts) {
       return 0;
     }
   });
-  console.log(productsNewSorted);
 
   // dynamically add html for product listings
   const productsContainer = document.getElementById("category-products");
@@ -50,7 +47,7 @@ function renderCategoryPage(categoryProducts) {
 
     const categoryContentContainer = document.createElement("article");
     categoryContentContainer.className = "category-content-container";
-    if (product.new === true) {
+    if (product.new) {
       console.log("product is new");
       const newItemText = document.createElement("p");
       newItemText.id = "category-new-product";

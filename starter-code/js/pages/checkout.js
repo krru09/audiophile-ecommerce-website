@@ -1,5 +1,7 @@
-import {cart, toggleModal} from "../header.js";
-import {getJsonPromise} from "../loadJSON.js";
+import {toggleModal} from "../header.js";
+import {productDataPromise} from "../main.js";
+import {cart} from "../cart/cart.js";
+import {findProduct} from "../utils/utils.js";
 
 const checkoutForm = document.getElementById("checkout-form");
 const formElements = document.querySelectorAll("input, textarea");
@@ -13,7 +15,7 @@ const validation = new JustValidate("#checkout-form", {
 
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await getJsonPromise();
+  await productDataPromise();
 
   renderOrderSummary(cart);
   togglePaymentMethod();
@@ -192,20 +194,22 @@ function displayPaymentInfo(paymentType) {
 }
 
 function renderOrderSummary(cart) {
-  console.log(cart);
   const cartProductsContainer = document.getElementById("checkout-products");
-  cart.forEach(cartItem => {
+  cart.cart.forEach(cartItem => {
+    const matchingProduct = findProduct(cartItem.id)
+    console.log(matchingProduct);
+
     const productContainer = document.createElement("article");
     const productImage = document.createElement("img");
-    productImage.src = `assets/cart/image-${cartItem.slug}.jpg`;
+    productImage.src = `assets/cart/image-${matchingProduct.slug}.jpg`;
     productContainer.appendChild(productImage);
 
     const productDetailsContainer = document.createElement("div");
     productDetailsContainer.className = "cart-product-details";
     const productTitle = document.createElement("h3");
-    productTitle.textContent = `${cartItem.cartName}`;
+    productTitle.textContent = `${matchingProduct.cartName}`;
     const productPrice = document.createElement("h4");
-    productPrice.textContent = `$ ${cartItem.price}`;
+    productPrice.textContent = `$ ${matchingProduct.price}`;
     productDetailsContainer.appendChild(productTitle);
     productDetailsContainer.appendChild(productPrice);
     productContainer.appendChild(productDetailsContainer);
@@ -220,11 +224,7 @@ function renderOrderSummary(cart) {
   // cart calculations section
   const cartSubtotal = document.getElementById("cart-subtotal");
   const subtotalAmountEl = cartSubtotal.querySelector("h4");
-  let cartTotal = 0;
-  cart.forEach(cartItem => {
-    cartItem.quantity > 1 ? cartTotal += cartItem.quantity*cartItem.price : cartTotal += cartItem.price;
-  });
-  subtotalAmountEl.textContent = `$ ${cartTotal}`;
+  subtotalAmountEl.textContent = `$ ${cart.totalPrice}`;
 
   // cart calculations -- shipping
   // shipping is always $50
@@ -235,7 +235,7 @@ function renderOrderSummary(cart) {
 
   // cart calculations -- vat
   // vat is always 20% of product total, excluding shipping
-  let vat = Math.round(cartTotal * 0.20);
+  let vat = Math.round(cart.totalPrice * 0.20);
   const vatContainer = document.getElementById("cart-vat");
   const vatEl = vatContainer.querySelector("h4");
   vatEl.textContent = `$ ${vat}`;
@@ -244,5 +244,5 @@ function renderOrderSummary(cart) {
   // grand total
   const grandTotalContainer = document.getElementById("cart-grand-total");
   const grandTotalEl = grandTotalContainer.querySelector("h4");
-  grandTotalEl.textContent = `$ ${cartTotal + shippingPrice}`;
+  grandTotalEl.textContent = `$ ${cart.totalPrice + shippingPrice}`;
 }
