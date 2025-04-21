@@ -39,6 +39,7 @@ export function toggleModal(modalContainer) {
 
 export function renderCartModal() {
   const cartProductsSection = document.getElementById("cart-products");
+  const cartCheckoutEl = document.getElementById("cart-checkout");
 
   // resets the cart modal products section so it always starts off as empty when called
   cartProductsSection.innerHTML = "";
@@ -79,6 +80,7 @@ export function renderCartModal() {
           </div>
       `;
       cartProductsSection.appendChild(cartProduct);
+      cartCheckoutEl.classList.remove("hidden");
       cartProductEventListeners(cartProduct);
     });
   } else {
@@ -87,6 +89,7 @@ export function renderCartModal() {
     cartProductsSection.style.fontSize = "1.5rem";
     cartProductsSection.style.fontWeight = "Bold";
     cartProductsSection.style.textAlign = "center";
+    cartCheckoutEl.classList.add("hidden");
   }
   
   const cartPriceElement = document.getElementById("cart-total-price");
