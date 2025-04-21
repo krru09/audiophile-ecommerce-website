@@ -70,6 +70,7 @@ export class Cart {
 
   removeAll() {
     this.#cart.splice(0, this.#cart.length);
+    this.localStorageCart = this.#cart;
   }
 
   removeProduct(id) {
@@ -79,6 +80,8 @@ export class Cart {
   
       this.#cart.splice(productIndex, 1);
     }
+
+    this.localStorageCart = this.#cart;
   }
 
   findById(id) {
