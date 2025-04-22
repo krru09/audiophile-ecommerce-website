@@ -68,12 +68,17 @@ h2 {
     max-width: 21.25rem;
   }
 
+  @include mq(1024px) {
+    max-width: 30rem;
+    width: 100%;
+  }
+
   @include mq(1440px) {
     max-width: fit-content;
   }
 }
 
-.product-details-image {
+picture .product-details-image {
   border-radius: .5rem;
 }
 

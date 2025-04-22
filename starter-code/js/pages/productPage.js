@@ -28,7 +28,7 @@ function renderProductPage(product) {
   const productDetailsImage = productDetailsContainer.querySelector("picture");
   productDetailsImage.innerHTML = `
     <picture>
-      <source media="(min-width: 1440px)" srcset="${product.image.desktop}">
+      <source media="(min-width: 1024px)" srcset="${product.image.desktop}">
       <source media="(min-width: 768px)" srcset="${product.image.tablet}">
       <img src="${product.image.mobile}" alt="${product.name}" class="product-details-image">
     </picture>
