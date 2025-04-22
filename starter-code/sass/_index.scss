@@ -320,9 +320,7 @@
 
 .yx1-see-product-image {
   animation: easeInRight 1s forwards;
-}
 
-.yx1-see-product-image {
   @include mq(768px) {
     animation: easeInBottom 1.5s forwards;
   }

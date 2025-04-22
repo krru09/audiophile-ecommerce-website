@@ -36,6 +36,9 @@ function renderCategoryPage(categoryProducts) {
     if (containerCounter % 2 === 0) {
       console.log("containerCounter is even");
       productContainer.classList.add("reverse");
+      productContainer.setAttribute("data-animation-mobile", "ease-in-right")
+    } else {
+      productContainer.setAttribute("data-animation-mobile", "ease-in-left");
     }
 
     productContainer.innerHTML = `

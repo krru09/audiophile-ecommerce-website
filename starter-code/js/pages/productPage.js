@@ -27,7 +27,7 @@ function renderProductPage(product) {
   const productDetailsContainer = document.getElementById("product-details");
   const productDetailsImage = productDetailsContainer.querySelector("picture");
   productDetailsImage.innerHTML = `
-    <picture>
+    <picture data-animation-mobile="ease-in-top" data-animation-tablet="ease-in-left">
       <source media="(min-width: 1024px)" srcset="${product.image.desktop}">
       <source media="(min-width: 768px)" srcset="${product.image.tablet}">
       <img src="${product.image.mobile}" alt="${product.name}" class="product-details-image">
@@ -58,6 +58,7 @@ function renderProductPage(product) {
 
   // in the box list
   const productBox = document.getElementById("product-box");
+  productBox.setAttribute("data-animation-mobile", "ease-in-right");
   const productBoxList = productBox.querySelector("ul");
   const includesObject = product.includes;
 
@@ -76,6 +77,19 @@ function renderProductPage(product) {
   let galleryId = 1;
   for(let key in galleryImages) {
     const imageContainer = document.createElement("picture");
+    switch (galleryId) {
+      case 1: 
+        imageContainer.setAttribute("data-animation-mobile", "ease-in-left");
+        imageContainer.setAttribute("data-animation-tablet", "ease-in-top");
+        break;
+      case 2:
+        imageContainer.setAttribute("data-animation-mobile", "ease-in-right");
+        imageContainer.setAttribute("data-animation-tablet", "ease-in-left");
+        break;
+      case 3:
+        imageContainer.setAttribute("data-animation-mobile", "ease-in-left");
+        imageContainer.setAttribute("data-animation-tablet", "ease-in-right");
+    }
     imageContainer.id = `gallery${galleryId}`;
     for (let currentKey in galleryImages[key]) {
       if (currentKey === "mobile") {
@@ -101,6 +115,7 @@ function renderProductPage(product) {
 
   // products may like container
   const productsMayLikeList = document.getElementById("products-may-like-list");
+  productsMayLikeList.setAttribute("data-animation", "ease-in-bottom");
   const otherProducts = product.others;
 
   let productId = 1;
