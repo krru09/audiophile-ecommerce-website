@@ -145,14 +145,10 @@
   gap: 1.75rem;
   text-align: center;
   place-items: center;
-
-  animation: easeInBottom 1s forwards;
   
   @include mq(1440px) {
     text-align: left;
     place-items: start;
-
-    animation: easeInLeft 1s forwards;
   }
 }
 
@@ -213,10 +209,6 @@
   gap: 1.5rem;
   max-width: 21.813rem;
 
-  animation-name: easeInRight;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-
   @include mq(1440px) {
     text-align: left;
     justify-items: revert;
@@ -262,10 +254,6 @@
   width: 10.766rem;
   margin-top: 3.438rem;
 
-  animation-name: easeInLeft;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-
   @include mq(768px) {
     max-width: 12.313rem;
     width: 100%;
@@ -275,10 +263,6 @@
     max-width: 25.625rem;
     margin-top: 5rem;
     margin-left: 6rem;
-
-    animation-name: easeInBottom;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
   }
 }
 
@@ -314,18 +298,6 @@
   z-index: -1;
 }
 
-.zx7-see-product-image {
-  animation: easeInLeft 1s forwards;
-}
-
-.yx1-see-product-image {
-  animation: easeInRight 1s forwards;
-
-  @include mq(768px) {
-    animation: easeInBottom 1.5s forwards;
-  }
-}
-
 .zx7-description, .yx1-description {
   display: grid;
   gap: 2rem;
@@ -339,15 +311,7 @@
   z-index: 1000;
 }
 
-.zx7-description {
-  animation: easeIn 2s forwards;
-  @include mq(768px) {
-    left: 3.875rem;
-  }
-}
-
-.yx1-description {
-  animation: easeIn 2s forwards;
+.yx1-description, .zx7-description {
   @include mq(1440px) {
     left: 3.875rem;
   }

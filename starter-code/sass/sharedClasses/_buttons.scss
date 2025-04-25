@@ -9,7 +9,7 @@
   background-color: $burnt-orange;
 }
 
-.orange-button:hover, .orange-button:active {
+.orange-button:hover, .orange-button:active, .orange-button:focus {
   background-color: $tangerine;
   color: $white;
 }
@@ -19,7 +19,7 @@
 .zx9-button:visited {
   color: $white;
 }
-.zx9-button:hover, .zx9-button:active {
+.zx9-button:hover, .zx9-button:active, .zx9-button:focus {
   background-color: #4c4c4c;
   color: $white;
 }
@@ -32,7 +32,8 @@
 
 // zx7 and yx1 buttons 
 .zx7-button:hover, .yx1-button:hover,
-.zx7-button:active, .yx1-button:active
+.zx7-button:active, .yx1-button:active,
+.zx7-button:focus, .yx1-button:focus
 {
   background-color: $black;
   color: $white; 
@@ -47,7 +48,7 @@
 }
 
 // category shop button
-.category-shop-button:hover, .category-shop-button:active {
+.category-shop-button:hover, .category-shop-button:active, .category-shop-button:focus {
   color: $burnt-orange;
 
   .opacity-shop {
@@ -124,7 +125,7 @@
 }
 
 // cart modal buttons
-#close-cart-button:hover, #close-cart-button:active {
+#close-cart-button:hover, #close-cart-button:active, #close-cart-button:focus {
   filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1385%) hue-rotate(327deg) brightness(90%) contrast(86%);
 }
 
@@ -132,7 +133,7 @@
   background: none;
 }
 
-#remove-all-button:hover, #remove-all-button:active {
+#remove-all-button:hover, #remove-all-button:active, #remove-all-button:focus {
   color: $burnt-orange;
 }
 

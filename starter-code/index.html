@@ -97,7 +97,7 @@
       <source media="(min-width: 768px)" srcset="assets/home/tablet/image-header.jpg">
       <img src="assets/home/mobile/image-header.jpg" alt="Audiophile Hero Image" class="hero-image">
     </picture>
-    <article id="hero-content" data-animation-mobile="ease-in-bottom" data-animation-desktop="ease-in-left">
+    <article id="hero-content" data-animation="ease-in-bottom" data-animation-desktop="ease-in-left">
       <div id="hero-text">
         <p id="category-new-product" class="hero-new">NEW PRODUCT</p>
         <h1 id="hero-title">XX99 MARK II HEADPHONES</h1>
@@ -109,13 +109,13 @@
     </article>
   </section>
   <main id="main">
-    <section class="category-options">
+    <section class="category-options" data-animation-mobile="ease-in" data-animation-tablet="ease-in-category">
       <article class="category-container">
         <img src="assets/shared/desktop/image-category-thumbnail-headphones.png" class="category-image" alt="XX Mark 1 Headphones">
         <div class="category-grey-background">
           <div class="category-content">
             <h2 class="category-name">HEADPHONES</h2>
-            <a href="headphones.html" class="category-shop-button" title="Shop all headphones" aria-label="Shop all headphones">
+            <a href="headphones.html" class="category-shop-button">
               <span class="opacity-shop">SHOP</span>
               <img src="assets/shared/desktop/icon-arrow-right.svg">
             </a>
@@ -127,7 +127,7 @@
         <div class="category-grey-background">
           <div class="category-content">
             <h2 class="category-name">SPEAKERS</h2>
-            <a href="speakers.html" class="category-shop-button" title="Shop all speakers" aria-label="Shop all speakers">
+            <a href="speakers.html" class="category-shop-button">
               <span class="opacity-shop">SHOP</span>
               <img src="assets/shared/desktop/icon-arrow-right.svg">
             </a>
@@ -139,7 +139,7 @@
         <div class="category-grey-background">
           <div class="category-content">
             <h2 class="category-name">EARPHONES</h2>
-            <a href="earphones.html" class="category-shop-button" title="Shop all earphones" aria-label="Shop all earphones">
+            <a href="earphones.html" class="category-shop-button">
               <span class="opacity-shop">SHOP</span>
               <img src="assets/shared/desktop/icon-arrow-right.svg">
             </a>
@@ -152,7 +152,7 @@
         <picture>
           <source media="(min-width:1044px)" srcset="assets/home/desktop/image-speaker-zx9.png">
           <source media="(min-width:768px)" srcset="assets/home/tablet/image-speaker-zx9.png">
-          <img src="assets/home/mobile/image-speaker-zx9.png" alt="ZX9 Speaker" class="zx9-see-product-img" data-animation-mobile="ease-in-left" data-animation-desktop="ease-in-bottom">
+          <img src="assets/home/mobile/image-speaker-zx9.png" alt="ZX9 Speaker" class="zx9-see-product-img" data-animation="ease-in-left" data-animation-desktop="ease-in-bottom">
         </picture>
         <div class="zx9-content" data-animation="ease-in-right">
           <h2 class="zx9-title">ZX9<br>SPEAKER</h2>
@@ -193,9 +193,9 @@
       <picture>
         <source media="(min-width: 1024px)" srcset="assets/shared/desktop/image-best-gear.jpg">
         <source media="(min-width: 768px)" srcset="assets/shared/tablet/image-best-gear.jpg">
-        <img src="assets/shared/mobile/image-best-gear.jpg" alt="Man Wearing Audiophile Headset" class="best-audio-image" data-animation-mobile="ease-in-top" data-animation-deskotp="ease-in-right">
+        <img src="assets/shared/mobile/image-best-gear.jpg" alt="Man Wearing Audiophile Headset" class="best-audio-image" data-animation-mobile="ease-in-top" data-animation-tablet="ease-in-right">
       </picture>
-      <article class="best-audio-txt" data-animation-mobile="ease-in-bottom" data-animation-desktop="ease-in-left">
+      <article class="best-audio-txt" data-animation-mobile="ease-in-bottom" data-animation-tablet="ease-in-left">
         <h2 class="best-audio-title">BRINGING YOU THE <span class="orange-text">BEST</span> AUDIO GEAR</h2>
         <p class="best-audio-description">
           Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
@@ -227,5 +227,6 @@
     </section>
   </footer>
   <script src="js/main.js" type="module"></script>
+  <script src="/js/utils/animations.js"></script>
 </body>
 </html>

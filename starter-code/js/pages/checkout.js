@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       },
       {
         rule: "customRegexp",
-        value: /^[A-Za-z]+$/,
+        value: /^[A-Za-z\s]+$/,
         errorMessage: "Letters only"
       }],
       {
@@ -98,6 +98,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   
   if (document.querySelector("input[value='e-Money']").checked) {
+    const eMoneyValue = document.querySelector("input[type='radio']:checked").value;
+    displayPaymentInfo(eMoneyValue);
     eMoneyValidations();
   }
 
@@ -168,7 +170,7 @@ function togglePaymentMethod() {
     radioButton.addEventListener("change", () => {
       displayPaymentInfo(radioButton.value);
       if (radioButton.value === "e-Money") {
-        eMoneyValidations()
+        eMoneyValidations();
       } else if (radioButton.value === "Cash on Delivery") {
         console.log(validation);
         validation.removeField("input[id='e-money-num']");
@@ -182,6 +184,7 @@ function togglePaymentMethod() {
 function displayPaymentInfo(paymentType) {
   const eMoneyInfoContainer = document.getElementById("e-money-input-container");
   const cashDeliveryInfoContainer = document.getElementById("cash-delivery-container");
+  console.log(paymentType);
 
   switch (paymentType) {
     case "e-Money":

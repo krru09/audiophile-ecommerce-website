@@ -33,11 +33,13 @@
   }
 }
 
-#header button img:hover, #header a img:hover {
+#header button:hover img, #header a:hover img,
+#header button:active img, #header a:active img,
+#header button:focus img, #header a:focus img  {
   filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1385%) hue-rotate(327deg) brightness(90%) contrast(86%);
 }
 
-#header-nav a:hover, #header-nav a:active {
+#header-nav a:hover, #header-nav a:active, #header-nav a:focus {
   color: $burnt-orange;
 }
 

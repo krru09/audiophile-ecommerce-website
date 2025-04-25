@@ -45,7 +45,7 @@
   }
 }
 
-#footer img:hover {
+#footer a:hover img, #footer a:hover img:active, #footer a:focus img {
   filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1385%) hue-rotate(327deg) brightness(90%) contrast(86%);
 }
 
@@ -79,7 +79,7 @@
   }
 }
 
-.navigation-links a:hover {
+.navigation-links a:hover, .navigation-links a:active, .navigation-links a:focus {
   color: $burnt-orange;
 }
 
@@ -106,12 +106,8 @@
   font-weight: bold;
 }
 
-#footer-links a:hover {
+#footer-links a:hover, #footer-links a:active, #footer-links a:focus {
   filter: invert(54%) sepia(37%) saturate(812%) hue-rotate(337deg) brightness(97%) contrast(82%);
-}
-
-#footer-links a {
-  cursor: pointer;
 }
 
 #footer-links {
@@ -128,4 +124,5 @@
 #footer-links a {
   width: 1.5rem;
   height: 1.5rem;
+  cursor: pointer;
 }
