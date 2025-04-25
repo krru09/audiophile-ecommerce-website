@@ -398,12 +398,6 @@
 .best-audio-image {
   grid-area: audio-img;
   border-radius: .5rem;
-
-  animation: easeInTop 1s forwards;
-
-  @include mq(1440px) {
-    animation: easeInRight 1s forwards;
-  }
 }
 
 .best-audio-txt {
@@ -411,8 +405,6 @@
   text-align: center; 
   display: grid;
   gap: 2rem; 
-
-  animation: easeInBottom 1s forwards;
 
   @include mq(768px) {
     max-width: 35.813rem;
@@ -423,8 +415,6 @@
     min-width: 27.813rem;
     width: 100%;
     text-align: left;
-
-    animation: easeInLeft 1s forwards;
   }
 }
 

@@ -27,10 +27,10 @@ function renderProductPage(product) {
   const productDetailsContainer = document.getElementById("product-details");
   const productDetailsImage = productDetailsContainer.querySelector("picture");
   productDetailsImage.innerHTML = `
-    <picture data-animation-mobile="ease-in-top" data-animation-tablet="ease-in-left">
+    <picture>
       <source media="(min-width: 1024px)" srcset="${product.image.desktop}">
       <source media="(min-width: 768px)" srcset="${product.image.tablet}">
-      <img src="${product.image.mobile}" alt="${product.name}" class="product-details-image">
+      <img src="${product.image.mobile}" alt="${product.name}" class="product-details-image" data-animation-mobile="ease-in-top" data-animation-tablet="ease-in-left">
     </picture>
   `;
 
@@ -58,7 +58,7 @@ function renderProductPage(product) {
 
   // in the box list
   const productBox = document.getElementById("product-box");
-  productBox.setAttribute("data-animation-mobile", "ease-in-right");
+  productBox.setAttribute("data-animation", "ease-in-right");
   const productBoxList = productBox.querySelector("ul");
   const includesObject = product.includes;
 

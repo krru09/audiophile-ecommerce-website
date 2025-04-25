@@ -52,11 +52,6 @@ h2 {
 
 #product-details img {
   grid-area: product-image;
-  animation: easeInTop 1s forwards;
-
-  @include mq(768px) {
-    animation: easeInLeft 1s forwards;
-  } 
 }
 
 #product-details-content {
@@ -106,11 +101,6 @@ picture .product-details-image {
   grid-gap: 2rem; 
   height: fit-content;
   place-self: center;
-  animation: easeInBottom 1s forwards;
-
-  @include mq(768px) {
-    animation: easeInRight 1s forwards;
-  }
 }
 
 // product features container
@@ -140,12 +130,6 @@ picture .product-details-image {
 // product features and product-box grid
 .product-features {
   grid-area: product-features;
-
-  animation: easeInLeft 1s forwards;
-
-  @include mq(768px) {
-    animation: easeInBottom 1s forwards;
-  }
 }
 
 #product-box {
@@ -163,7 +147,6 @@ picture .product-details-image {
     'box-header'
     'box-list';
 
-  animation: easeInRight 1s forwards;
   @include mq(768px) {
     grid-template-rows: 1fr;
     grid-template-areas:
@@ -231,29 +214,14 @@ li {
 
 #gallery1 {
   grid-area: gallery-1;
-  animation: easeInLeft 1s forwards;
-
-  @include mq(768px) {
-    animation: easeInTop 1s forwards;
-  }
 }
 
 #gallery2 {
   grid-area: gallery-2;
-  animation: easeInRight 1s forwards;
-
-  @include mq(768px) {
-    animation: easeInLeft 1s forwards;
-  }
 }
 
 #gallery3 {
   grid-area: gallery-3;
-  animation: easeInLeft 1s forwards;
-
-  @include mq(768px) {
-    animation: easeInRight 1s forwards;
-  }
 }
 
 // products may like
@@ -265,10 +233,6 @@ li {
     gap: 3.5rem;
     text-align: center;
   }
-}
-
-#products-may-like-container h2 {
-  animation: easeInTop 1s forwards;
 }
 
 #product-1 {
@@ -291,8 +255,7 @@ li {
     'product-1'
     'product-2'
     'product-3';
-  
-    animation: easeInBottom 1s forwards;
+
   @include mq(768px) {
     grid-template-areas:
       'product-1 product-2 product-3';

@@ -1,3 +1,32 @@
+[data-animation], [data-animation-mobile], [data-animation-tablet], [data-animation-desktop] {
+  opacity: 0;
+}
+
+// animation variants
+.animate.ease-in-right {
+  animation: easeInRight 1s forwards;
+}
+
+.animate.ease-in-top {
+  animation: easeInTop 1s forwards;
+}
+
+.animate.ease-in-bottom {
+  animation: easeInBottom 1s forwards;
+}
+
+.animate.ease-in {
+  animation: easeIn 1s forwards;
+}
+
+.animate.ease-in-left {
+  animation: easeInLeft 1s forwards;
+}
+
+.animate.ease-in-category {
+  animation: easeInCategory 1s forwards;
+}
+
 @keyframes easeInRight {
   from {
     opacity: 0;
@@ -21,7 +50,7 @@
 @keyframes easeInBottom {
   from {
     opacity: 0;
-    transform: translateY(10%);
+    transform: translateY(5%);
   } to {
     opacity: 1;
     transform: translateY(0);
