@@ -59,3 +59,8 @@ export function findProduct(info) {
 export function filterProducts(categoryName) {
   return productData.filter(product => product.category === categoryName);
 }
+
+export function returnCurrentYear() {
+  const todaysDate = new Date();
+  return todaysDate.getFullYear();
+}
