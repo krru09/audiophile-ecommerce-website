@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       // we need to use this setTimeout() so that it happens after the modal is registerd in the dom (initial state of modal is display: none)
       setTimeout(() => {
         scrollToModal(checkoutCompleteModal);
+        cart.removeAll();
       }, 50);
     });
   
