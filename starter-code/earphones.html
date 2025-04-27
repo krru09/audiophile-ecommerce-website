@@ -98,16 +98,16 @@
   <main id="category-main" data-category="earphones">
     <section id="category-products">
     </section>
-    <section class="category-options">
+    <section class="category-options" data-animation-mobile="ease-in" data-animation-tablet="ease-in-category">
       <article class="category-container">
         <img src="assets/shared/desktop/image-category-thumbnail-headphones.png" class="category-image" alt="XX Mark 1 Headphones">
         <div class="category-grey-background">
           <div class="category-content">
             <h2 class="category-name">HEADPHONES</h2>
-            <button class="category-shop-button">
-              <a href="headphones.html" class="opacity-shop">SHOP</a>
+            <a href="headphones.html" class="category-shop-button">
+              <span class="opacity-shop">SHOP</span>
               <img src="assets/shared/desktop/icon-arrow-right.svg">
-            </button>
+            </a>
           </div>
         </div>
       </article>
@@ -116,10 +116,10 @@
         <div class="category-grey-background">
           <div class="category-content">
             <h2 class="category-name">SPEAKERS</h2>
-            <button class="category-shop-button">
-              <a href="speakers.html" class="opacity-shop">SHOP</a>
+            <a href="speakers.html" class="category-shop-button">
+              <span class="opacity-shop">SHOP</span>
               <img src="assets/shared/desktop/icon-arrow-right.svg">
-            </button>
+            </a>
           </div>
         </div>
       </article>
@@ -128,10 +128,10 @@
         <div class="category-grey-background">
           <div class="category-content">
             <h2 class="category-name">EARPHONES</h2>
-            <button class="category-shop-button">
-              <a href="earphones.html" class="opacity-shop">SHOP</a>
+            <a href="earphones.html" class="category-shop-button">
+              <span class="opacity-shop">SHOP</span>
               <img src="assets/shared/desktop/icon-arrow-right.svg">
-            </button>
+            </a>
           </div>
         </div>
       </article>
@@ -175,5 +175,6 @@
   </footer>
   <script src="/js/main.js" type="module"></script>
   <script src="/js/pages/categoryPage.js" type="module"></script>
+  <script src="/js/utils/animations.js"></script>
 </body>
 </html>
