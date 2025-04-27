@@ -11,7 +11,6 @@ async function loadJSON() {
       return data;
     }
   } catch (error) {
-    console.log(`${error}`);
     throw error;
   }
 }

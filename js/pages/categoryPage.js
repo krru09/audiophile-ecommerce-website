@@ -34,7 +34,6 @@ function renderCategoryPage(categoryProducts) {
     productContainer.className = "category-product";
     
     if (containerCounter % 2 === 0) {
-      console.log("containerCounter is even");
       productContainer.classList.add("reverse");
       productContainer.setAttribute("data-animation", "ease-in-right")
     } else {
@@ -52,7 +51,6 @@ function renderCategoryPage(categoryProducts) {
     const categoryContentContainer = document.createElement("article");
     categoryContentContainer.className = "category-content-container";
     if (product.new) {
-      console.log("product is new");
       const newItemText = document.createElement("p");
       newItemText.id = "category-new-product";
       newItemText.className = "orange-text";

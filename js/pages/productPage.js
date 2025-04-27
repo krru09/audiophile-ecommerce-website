@@ -200,7 +200,6 @@ function addCartFunction(addCartButton, product) {
 
     const matchingItem = cart.findById(product.id);
     if (matchingItem) {
-      console.log("matching item found from productPage.js");
       matchingItem.quantity += currentQuantity;
       cart.localStorageCart = cart.cart;
     } else {

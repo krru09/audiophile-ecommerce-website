@@ -172,7 +172,6 @@ function togglePaymentMethod() {
       if (radioButton.value === "e-Money") {
         eMoneyValidations();
       } else if (radioButton.value === "Cash on Delivery") {
-        console.log(validation);
         validation.removeField("input[id='e-money-num']");
         validation.removeField("input[id='e-money-pin']");
         validation.revalidate();
@@ -184,7 +183,6 @@ function togglePaymentMethod() {
 function displayPaymentInfo(paymentType) {
   const eMoneyInfoContainer = document.getElementById("e-money-input-container");
   const cashDeliveryInfoContainer = document.getElementById("cash-delivery-container");
-  console.log(paymentType);
 
   switch (paymentType) {
     case "e-Money":
@@ -200,9 +198,7 @@ function displayPaymentInfo(paymentType) {
 function renderOrderSummary(cart) {
   const cartProductsContainer = document.getElementById("checkout-products");
   cart.cart.forEach(cartItem => {
-    console.log(cartItem.id);
     const matchingProduct = findProduct(cartItem.id)
-    console.log(matchingProduct);
 
     const productContainer = document.createElement("article");
     const productImage = document.createElement("img");
@@ -244,7 +240,6 @@ function renderOrderSummary(cart) {
   const vatContainer = document.getElementById("cart-vat");
   const vatEl = vatContainer.querySelector("h4");
   vatEl.textContent = `$ ${setCurrency(vat)}`;
-  // console.log(vat);
 
   // grand total
   const grandTotalContainer = document.getElementById("cart-grand-total");

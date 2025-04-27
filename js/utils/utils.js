@@ -5,7 +5,6 @@ export function goBackEventListener() {
   backButton.addEventListener("click", (e) => {
     e.preventDefault();
     const lastPage = pullLastPage();
-    console.log("redirecting to: ", lastPage);
     window.location.href = lastPage;
   });
 }
@@ -25,7 +24,6 @@ export function pageSaves() {
 export function saveGoBackPage() {
   const previousPage = window.location.pathname;
   const pages = JSON.parse(localStorage.getItem("lastPages")) || [];
-  console.log(pages);
   if (pages[0] !== previousPage) {
     pages.unshift(previousPage);
   }
@@ -36,7 +34,6 @@ export function saveGoBackPage() {
 export function pullLastPage() {
   const pages = JSON.parse(localStorage.getItem("lastPages"));
   const lastPage = pages.shift() || "/index.html";
-  console.log(pages);
   localStorage.setItem("lastPages", JSON.stringify(pages));
   return lastPage;
 }

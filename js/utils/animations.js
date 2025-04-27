@@ -25,13 +25,10 @@ const getResponsiveAnimation = (element) => {
   let animationClass;
   if (window.innerWidth <= 767) {
     animationClass = element.dataset.animationMobile || element.dataset.animation;
-    console.log(animationClass);
   } else if (window.innerWidth <= 1024) {
     animationClass = element.dataset.animationTablet || element.dataset.animation;
-    console.log(animationClass);
   } else {
     animationClass = element.dataset.animationDesktop || element.dataset.animationTablet || element.dataset.animation;
-    console.log(animationClass);
   }
 
   return animationClass;
@@ -42,6 +39,7 @@ setTimeout(() => {
   const animatedElements = document.querySelectorAll('[data-animation], [data-animation-mobile],[data-animation-tablet], [data-animation-desktop]');
 
   animatedElements.forEach(element => 
-    {console.log("observing:", element);
-    observer.observe(element)});
+    {
+      observer.observe(element)
+    });
 }, 100);
